@@ -198,15 +198,15 @@ function Portfolio(){
 
 //--------------------------------------------------------------- links ---------------------------------------------------------------
 
-function openNewBackgroundTab(){    
-    var a = document.createElement("a");    
-    a.href = "http://www.google.com/";    
-    var evt = document.createEvent("MouseEvents");    
+// function openNewBackgroundTab(){    
+//     var a = document.createElement("a");    
+//     a.href = "http://www.google.com/";    
+//     var evt = document.createEvent("MouseEvents");    
 
-    //the tenth parameter of initMouseEvent sets ctrl key    
-    evt.initMouseEvent("click", true, true, window, 0, 0, 0, 0, 0,true, false, false, false, 0, null);    
-    a.dispatchEvent(evt);
-}
+//     //the tenth parameter of initMouseEvent sets ctrl key    
+//     evt.initMouseEvent("click", true, true, window, 0, 0, 0, 0, 0,true, false, false, false, 0, null);    
+//     a.dispatchEvent(evt);
+// }
 
 function Links(){
     return(
