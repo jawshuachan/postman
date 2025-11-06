@@ -3,8 +3,13 @@ import { useState, useCallback } from 'react'
 import { ScrollArea } from "@/components/ui/scroll-area"
 import { BaseNode, ContentNode } from '@/components/base-node'
 import { BentoGrid, BentoGridItem } from "@/components/ui/bento-grid";
+import { Button } from './ui/button';
+
+import { IconBrandLinkedin, IconBrandGithub, IconBrandWhatsapp, IconBrandGmail, IconBrandInstagram, IconBrandX } from '@tabler/icons-react'
 
 import '@xyflow/react/dist/style.css';
+
+//--------------------------------------------------------------- home ---------------------------------------------------------------
 
 function Home(){
     return(
@@ -21,6 +26,8 @@ function Home(){
         </div>
     )
 }
+
+//--------------------------------------------------------------- techstack ---------------------------------------------------------------
 
 const nodeTypes = {
     base: BaseNode,
@@ -130,6 +137,8 @@ function Stack(){
     )
 }
 
+//--------------------------------------------------------------- portfolio ---------------------------------------------------------------
+
 function Portfolio(){
     const items = [
     {
@@ -187,10 +196,68 @@ function Portfolio(){
     )
 }
 
+//--------------------------------------------------------------- links ---------------------------------------------------------------
+
+function openNewBackgroundTab(){    
+    var a = document.createElement("a");    
+    a.href = "http://www.google.com/";    
+    var evt = document.createEvent("MouseEvents");    
+
+    //the tenth parameter of initMouseEvent sets ctrl key    
+    evt.initMouseEvent("click", true, true, window, 0, 0, 0, 0, 0,true, false, false, false, 0, null);    
+    a.dispatchEvent(evt);
+}
+
 function Links(){
     return(
-        <div className="relative isolate px-6 pt-14 lg:px-8">
-            <p>Links</p>
+        <div className="h-full flex items-center justify-center">
+            <div className="h-full w-full rounded-md">
+                <div className="relative isolate px-8 py-5 m-15 pt-15 lg:px-8">
+                    <div className="title text-center p-5">
+                        <h1 className="text-9xl font-[Hedvig Sans]">that's all folks!</h1>
+                    </div>
+                </div>
+                <div className="mt-8 m-10">
+                    <span className="description p-2 px-10 rounded-3xl text-md border bg-card">professional enquiries</span>
+                </div>
+                <div className="mt-8 m-10">
+                    <Button variant="ghost" className="p-10 m-2 rounded-2xl border">
+                        <a className="p-0" href="https://www.linkedin.com/in/joshua-chan-bp37/" target="_blank">
+                            <IconBrandLinkedin className="size-10" />
+                        </a>
+                    </Button>
+                    <Button variant="ghost" className="p-10 m-2 rounded-2xl border">
+                        <a className="p-0" href="https://github.com/jawshuachan" target="_blank">
+                            <IconBrandGithub className="size-10" />
+                        </a>
+                    </Button>
+                    <Button variant="ghost" className="p-10 m-2 rounded-2xl border">
+                        <a className="p-0" href="https://www.linkedin.com/in/joshua-chan-bp37/" target="_blank">
+                            <IconBrandWhatsapp className="size-10" />
+                        </a>
+                    </Button>
+                    <Button variant="ghost" className="p-10 m-2 rounded-2xl border">
+                        <a className="p-0" href="https://www.linkedin.com/in/joshua-chan-bp37/" target="_blank">
+                            <IconBrandGmail className="size-10" />
+                        </a>
+                    </Button>
+                </div>
+                <div className="mt-8 m-10">
+                    <span className="description p-2 px-10 rounded-3xl text-md border bg-card">socials</span>
+                </div>
+                <div className="mt-8 m-10">
+                    <Button variant="ghost" className="p-10 m-2 rounded-2xl border">
+                        <a className="p-0" href="https://www.instagram.com/joshuaachan/" target="_blank">
+                            <IconBrandInstagram className="size-10" />
+                        </a>
+                    </Button>
+                    <Button variant="ghost" className="p-10 m-2 rounded-2xl border">
+                        <a className="p-0" href="https://www.x.com/jawshuachan/" target="_blank">
+                            <IconBrandX className="size-10" />
+                        </a>
+                    </Button>
+                </div>
+            </div>
         </div>
     )
 }
