@@ -4,6 +4,7 @@ import { ScrollArea } from "@/components/ui/scroll-area"
 import { BaseNode, ContentNode } from '@/components/base-node'
 import { BentoGrid, BentoGridItem } from "@/components/ui/bento-grid";
 import { Button } from './ui/button';
+import { motion } from 'framer-motion'
 
 import { IconBrandLinkedin, IconBrandGithub, IconBrandWhatsapp, IconBrandGmail, IconBrandInstagram, IconBrandX } from '@tabler/icons-react'
 
@@ -221,41 +222,83 @@ function Links(){
                     <span className="description p-2 px-10 rounded-3xl text-md border bg-card">professional enquiries</span>
                 </div>
                 <div className="mt-8 m-10">
-                    <Button variant="ghost" className="p-10 m-2 rounded-2xl border">
-                        <a className="p-0" href="https://www.linkedin.com/in/joshua-chan-bp37/" target="_blank">
-                            <IconBrandLinkedin className="size-10" />
-                        </a>
-                    </Button>
-                    <Button variant="ghost" className="p-10 m-2 rounded-2xl border">
-                        <a className="p-0" href="https://github.com/jawshuachan" target="_blank">
-                            <IconBrandGithub className="size-10" />
-                        </a>
-                    </Button>
-                    <Button variant="ghost" className="p-10 m-2 rounded-2xl border">
-                        <a className="p-0" href="https://www.linkedin.com/in/joshua-chan-bp37/" target="_blank">
-                            <IconBrandWhatsapp className="size-10" />
-                        </a>
-                    </Button>
-                    <Button variant="ghost" className="p-10 m-2 rounded-2xl border">
-                        <a className="p-0" href="https://www.linkedin.com/in/joshua-chan-bp37/" target="_blank">
-                            <IconBrandGmail className="size-10" />
-                        </a>
-                    </Button>
+                    <motion.button
+                    whileHover={{ scale: 1.1 }}
+                    whileTap={{ scale: 0.95 }}
+                    transition={{ type: "spring", stiffness: 300, damping: 15 }}
+                    >
+                        <Button variant="ghost" className="p-10 m-2 rounded-2xl border">
+                            <a className="p-0" href="https://www.linkedin.com/in/joshua-chan-bp37/" target="_blank">
+                                <IconBrandLinkedin className="size-10" />
+                            </a>
+                        </Button>
+                    </motion.button>
+                    
+                    <motion.button
+                    whileHover={{ scale: 1.1 }}
+                    whileTap={{ scale: 0.95 }}
+                    transition={{ type: "spring", stiffness: 300, damping: 15 }}
+                    >
+                        <Button variant="ghost" className="p-10 m-2 rounded-2xl border">
+                            <a className="p-0" href="https://github.com/jawshuachan" target="_blank">
+                                <IconBrandGithub className="size-10" />
+                            </a>
+                        </Button>
+                    </motion.button>
+
+                    <motion.button
+                    whileHover={{ scale: 1.1 }}
+                    whileTap={{ scale: 0.95 }}
+                    transition={{ type: "spring", stiffness: 300, damping: 15 }}
+                    >
+                        <Button variant="ghost" className="p-10 m-2 rounded-2xl border">
+                            <a className="p-0" href="https://www.linkedin.com/in/joshua-chan-bp37/" target="_blank">
+                                <IconBrandWhatsapp className="size-10" />
+                            </a>
+                        </Button>
+                    </motion.button>
+                    
+                    <motion.button
+                    whileHover={{ scale: 1.1 }}
+                    whileTap={{ scale: 0.95 }}
+                    transition={{ type: "spring", stiffness: 300, damping: 15 }}
+                    >
+                        <Button variant="ghost" className="p-10 m-2 rounded-2xl border">
+                            <a className="p-0" href="https://www.linkedin.com/in/joshua-chan-bp37/" target="_blank">
+                                <IconBrandGmail className="size-10" />
+                            </a>
+                        </Button>
+                    </motion.button>
+                    
                 </div>
                 <div className="mt-8 m-10">
                     <span className="description p-2 px-10 rounded-3xl text-md border bg-card">socials</span>
                 </div>
                 <div className="mt-8 m-10">
-                    <Button variant="ghost" className="p-10 m-2 rounded-2xl border">
-                        <a className="p-0" href="https://www.instagram.com/joshuaachan/" target="_blank">
-                            <IconBrandInstagram className="size-10" />
-                        </a>
-                    </Button>
-                    <Button variant="ghost" className="p-10 m-2 rounded-2xl border">
-                        <a className="p-0" href="https://www.x.com/jawshuachan/" target="_blank">
-                            <IconBrandX className="size-10" />
-                        </a>
-                    </Button>
+                    <motion.button
+                    whileHover={{ scale: 1.1 }}
+                    whileTap={{ scale: 0.95 }}
+                    transition={{ type: "spring", stiffness: 300, damping: 15 }}
+                    >
+                        <Button variant="ghost" className="p-10 m-2 rounded-2xl border">
+                            <a className="p-0" href="https://www.instagram.com/joshuaachan/" target="_blank">
+                                <IconBrandInstagram className="size-10" />
+                            </a>
+                        </Button>
+                    </motion.button>
+                    
+                    <motion.button
+                    whileHover={{ scale: 1.1 }}
+                    whileTap={{ scale: 0.95 }}
+                    transition={{ type: "spring", stiffness: 300, damping: 15 }}
+                    >
+                        <Button variant="ghost" className="p-10 m-2 rounded-2xl border">
+                            <a className="p-0" href="https://www.x.com/jawshuachan/" target="_blank">
+                                <IconBrandX className="size-10" />
+                            </a>
+                        </Button>
+                    </motion.button>
+                    
                 </div>
             </div>
         </div>
