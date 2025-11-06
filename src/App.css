@@ -1,0 +1,41 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.title {
+  font-family: "Hedvig Letters Serif", serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  color: #F76F53;
+}
+
+em {
+  font-family: "Hedvig Letters Serif", serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: italic;
+  color: #F76F53;
+}
+
+.subtitle {
+  font-family: "Hedvig Letters Serif", serif;
+  font-weight: 400;
+  font-style: normal;
+  word-spacing: 5px;
+}
+
+.description {
+  font-family: "Hedvig Letters Sans", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.text-card-foreground {
+  font-family: "Hedvig Letters Sans", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
