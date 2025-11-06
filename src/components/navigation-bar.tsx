@@ -31,6 +31,7 @@ export default function NavigationBar({currentView, onChangeView}:Props){
                                 <NavigationMenuLink
                                 asChild
                                 data-active={currentView === 'home' ||undefined}
+                                className="data-[active]:underline underline-offset-8 data-[active]:decoration-[#F76F53] data-[active]:decoration-4"
                                 > 
                                     <Button
                                     onClick={()=>onChangeView('home')}
@@ -42,6 +43,7 @@ export default function NavigationBar({currentView, onChangeView}:Props){
                                 <NavigationMenuLink
                                 asChild
                                 data-active={currentView === 'tech' ||undefined}
+                                className="data-[active]:underline underline-offset-8 data-[active]:decoration-[#F76F53] data-[active]:decoration-4"
                                 > 
                                     <Button
                                     onClick={()=>onChangeView('tech')}
@@ -54,6 +56,7 @@ export default function NavigationBar({currentView, onChangeView}:Props){
                                 <NavigationMenuLink
                                 asChild
                                 data-active={currentView === 'portfolio' ||undefined}
+                                className="data-[active]:underline underline-offset-8 data-[active]:decoration-[#F76F53] data-[active]:decoration-4"
                                 > 
                                     <Button
                                     onClick={()=>onChangeView('portfolio')}
@@ -67,6 +70,7 @@ export default function NavigationBar({currentView, onChangeView}:Props){
                                 <NavigationMenuLink
                                 asChild
                                 data-active={currentView === 'links' ||undefined}
+                                className="data-[active]:underline underline-offset-8 data-[active]:decoration-[#F76F53] data-[active]:decoration-4"
                                 > 
                                     <Button
                                     onClick={()=>onChangeView('links')}
