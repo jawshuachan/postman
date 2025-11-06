@@ -41,7 +41,7 @@ export function ContentNode(props: any) {
       <BaseNodeHeader>
         <img
         className="w-7"
-        src={`../src/assets/${data?.image}`}
+        src={`${data?.image}`}
         />
         <BaseNodeHeaderTitle className="subtitle text-right text-2xl">
           {data?.label}

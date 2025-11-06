@@ -1,7 +1,7 @@
-import flowerGraphic from "../assets/flower.svg"
-import zenGraphic from "../assets/zen.svg"
-import darkFlowerGraphic from "../assets/darkFlower.svg"
-import darkZenGraphic from "../assets/darkPillars.svg"
+import flowerGraphic from "/assets/flower.svg"
+import zenGraphic from "/assets/zen.svg"
+import darkFlowerGraphic from "/assets/darkFlower.svg"
+import darkZenGraphic from "/assets/darkPillars.svg"
 
 export default function Footer(){
 

@@ -5,7 +5,6 @@ import {
     NavigationMenuLink
   } from "@/components/ui/navigation-menu"
 import { ModeToggle } from "./mode-toggle"
-import postmanLogo from "../assets/postmanlogo.svg"
 import { Button } from "./ui/button";
 
 type View = 'home' | 'tech' | 'portfolio' | 'links';
@@ -21,7 +20,7 @@ export default function NavigationBar({currentView, onChangeView}:Props){
             <div className="grid grid-cols-3 items-center w-full p-2">
                 <div className='flex items-center'>
                     <a href="/">
-                        <img className="w-7 " src={postmanLogo} alt="Postman logo" />
+                        <img className="w-7 " src="/assets/postmanlogo.svg" alt="Postman logo" />
                     </a>
                 </div>
                 

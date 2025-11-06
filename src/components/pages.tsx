@@ -3,15 +3,6 @@ import { useState, useCallback } from 'react'
 import { ScrollArea } from "@/components/ui/scroll-area"
 import { BaseNode, ContentNode } from '@/components/base-node'
 import { BentoGrid, BentoGridItem } from "@/components/ui/bento-grid";
-import {
-  IconArrowWaveRightUp,
-  IconBoxAlignRightFilled,
-  IconBoxAlignTopLeft,
-  IconClipboardCopy,
-  IconFileBroken,
-  IconSignature,
-  IconTableColumn,
-} from "@tabler/icons-react";
 
 import '@xyflow/react/dist/style.css';
 
@@ -45,31 +36,31 @@ const initialNodes: Node[] = [
     { id: 'n5', type: 'base', position: { x: -650, y: 700 }, data: { label: 'Hosting' } },
   
     // Frameworks
-    { id: 'n6',  type: 'content', position: { x: -100, y: -210 },  data: { label: 'Laravel', image: 'laravel.svg', proficiency: "3", xp: "2 years" } },
-    { id: 'n7',  type: 'content', position: { x: -520, y: -240 },  data: { label: 'React',   image: 'React.svg',   proficiency: "4", xp: "2 years" } },
-    { id: 'n8',  type: 'content', position: { x: -900, y: -220 },  data: { label: 'Next.js', image: 'nextjs.svg',  proficiency: "5", xp: "2 years" } },
-    { id: 'n9',  type: 'content', position: { x: -1300, y: -200 }, data: { label: 'Vite',    image: 'vite.svg',    proficiency: "3", xp: "2 years" } },
+    { id: 'n6',  type: 'content', position: { x: -100, y: -210 },  data: { label: 'Laravel', image: '/assets/laravel.svg', proficiency: "3", xp: "2 years" } },
+    { id: 'n7',  type: 'content', position: { x: -520, y: -240 },  data: { label: 'React',   image: '/assets/React.svg',   proficiency: "4", xp: "2 years" } },
+    { id: 'n8',  type: 'content', position: { x: -900, y: -220 },  data: { label: 'Next.js', image: '/assets/nextjs.svg',  proficiency: "5", xp: "2 years" } },
+    { id: 'n9',  type: 'content', position: { x: -1300, y: -200 }, data: { label: 'Vite',    image: '/assets/vite.svg',    proficiency: "3", xp: "2 years" } },
   
     // Languages
-    { id: 'n10', type: 'content', position: { x: 100, y: -580 },   data: { label: 'C++',        image: 'C++.svg',        proficiency: "2", xp: "2 years" } },
-    { id: 'n11', type: 'content', position: { x: 500, y: -580 },   data: { label: 'C',          image: 'C.svg',          proficiency: "2", xp: "2 years" } },
-    { id: 'n12', type: 'content', position: { x: 900, y: -580 },   data: { label: 'Python',     image: 'python.svg',     proficiency: "5", xp: "2 years" } },
-    { id: 'n13', type: 'content', position: { x: 1300, y: -580 },  data: { label: 'Java',       image: 'java.svg',       proficiency: "5", xp: "2 years" } },
-    { id: 'n14', type: 'content', position: { x: 1700, y: -580 },  data: { label: 'Javascript', image: 'javascript.svg', proficiency: "3", xp: "2 years" } },
-    { id: 'n15', type: 'content', position: { x: 2100, y: -580 },  data: { label: 'Typescript', image: 'typescript.svg', proficiency: "3", xp: "2 years" } },
-    { id: 'n16', type: 'content', position: { x: -300, y: -580 },  data: { label: 'R',          image: 'R.svg',          proficiency: "2", xp: "2 years" } },
-    { id: 'n17', type: 'content', position: { x: -700, y: -580 },  data: { label: 'PHP',        image: 'PHP.svg',        proficiency: "4", xp: "2 years" } },
-    { id: 'n18', type: 'content', position: { x: -1100, y: -580 }, data: { label: 'HTML 5',     image: 'HTML5.svg',      proficiency: "5", xp: "2 years" } },
+    { id: 'n10', type: 'content', position: { x: 100, y: -580 },   data: { label: 'C++',        image: '/assets/C++.svg',        proficiency: "2", xp: "2 years" } },
+    { id: 'n11', type: 'content', position: { x: 500, y: -580 },   data: { label: 'C',          image: '/assets/C.svg',          proficiency: "2", xp: "2 years" } },
+    { id: 'n12', type: 'content', position: { x: 900, y: -580 },   data: { label: 'Python',     image: '/assets/python.svg',     proficiency: "5", xp: "2 years" } },
+    { id: 'n13', type: 'content', position: { x: 1300, y: -580 },  data: { label: 'Java',       image: '/assets/java.svg',       proficiency: "5", xp: "2 years" } },
+    { id: 'n14', type: 'content', position: { x: 1700, y: -580 },  data: { label: 'Javascript', image: '/assets/javascript.svg', proficiency: "3", xp: "2 years" } },
+    { id: 'n15', type: 'content', position: { x: 2100, y: -580 },  data: { label: 'Typescript', image: '/assets/typescript.svg', proficiency: "3", xp: "2 years" } },
+    { id: 'n16', type: 'content', position: { x: -300, y: -580 },  data: { label: 'R',          image: '/assets/R.svg',          proficiency: "2", xp: "2 years" } },
+    { id: 'n17', type: 'content', position: { x: -700, y: -580 },  data: { label: 'PHP',        image: '/assets/PHP.svg',        proficiency: "4", xp: "2 years" } },
+    { id: 'n18', type: 'content', position: { x: -1100, y: -580 }, data: { label: 'HTML 5',     image: '/assets/HTML5.svg',      proficiency: "5", xp: "2 years" } },
   
     // Design
-    { id: 'n19', type: 'content', position: { x: 450, y: 0 },    data: { label: 'Figma',    image: 'Figma.svg',    proficiency: "5", xp: "2 years" } },
-    { id: 'n20', type: 'content', position: { x: 910, y: -80 },  data: { label: 'Rive',     image: 'Rive.svg',     proficiency: "2", xp: "2 years" } },
-    { id: 'n21', type: 'content', position: { x: 1300, y: -50 }, data: { label: 'ShadcnUI', image: 'ShadcnUI.svg', proficiency: "3", xp: "2 years" } },
-    { id: 'n22', type: 'content', position: { x: 1750, y: 200 }, data: { label: 'Tailwind', image: 'tailwind.svg', proficiency: "3", xp: "2 years" } },
+    { id: 'n19', type: 'content', position: { x: 450, y: 0 },    data: { label: 'Figma',    image: '/assets/Figma.svg',    proficiency: "5", xp: "2 years" } },
+    { id: 'n20', type: 'content', position: { x: 910, y: -80 },  data: { label: 'Rive',     image: '/assets/Rive.svg',     proficiency: "2", xp: "2 years" } },
+    { id: 'n21', type: 'content', position: { x: 1300, y: -50 }, data: { label: 'ShadcnUI', image: '/assets/ShadcnUI.svg', proficiency: "3", xp: "2 years" } },
+    { id: 'n22', type: 'content', position: { x: 1750, y: 200 }, data: { label: 'Tailwind', image: '/assets/tailwind.svg', proficiency: "3", xp: "2 years" } },
   
     // Hosting
-    { id: 'n23', type: 'content', position: { x: -1300, y: 350 }, data: { label: 'AWS',    image: 'AWS.svg',    proficiency: "4", xp: "1 year" } },
-    { id: 'n24', type: 'content', position: { x: -900, y: 350 },  data: { label: 'Vercel', image: 'Vercel.svg', proficiency: "2", xp: "2 years" } },
+    { id: 'n23', type: 'content', position: { x: -1300, y: 350 }, data: { label: 'AWS',    image: '/assets/AWS.svg',    proficiency: "4", xp: "1 year" } },
+    { id: 'n24', type: 'content', position: { x: -900, y: 350 },  data: { label: 'Vercel', image: '/assets/Vercel.svg', proficiency: "2", xp: "2 years" } },
   ];
 
   const initialEdges = [
@@ -140,52 +131,37 @@ function Stack(){
 }
 
 function Portfolio(){
-    const Skeleton = () => (
-        <div className="flex flex-1 w-full h-full min-h-[6rem] rounded-xl bg-gradient-to-br from-neutral-200 dark:from-neutral-900 dark:to-neutral-800 to-neutral-100"></div>
-      );
     const items = [
     {
-        title: "Monogrid",
-        description: "an AWS cloud based video transcoding app.",
-        header: <Skeleton />,
-        icon: <IconClipboardCopy className="h-4 w-4 text-neutral-500" />,
+        title: "University Projects",
+        image: "/assets/header_cab202.png"
     },
     {
         title: "VIRA",
-        description: "Dive into the transformative power of technology.",
-        header: <Skeleton />,
-        icon: <IconFileBroken className="h-4 w-4 text-neutral-500" />,
+        image: "/assets/header_vira.png"
     },
     {
         title: "7 Manning's RSVP",
-        description: "Discover the beauty of thoughtful and functional design.",
-        header: <Skeleton />,
-        icon: <IconSignature className="h-4 w-4 text-neutral-500" />,
+        image: "/assets/header_housewarming.jpg"
     },
     {
-        title: "The Power of Communication",
+        title: "Monogrid",
         description:
-        "Understand the impact of effective communication in our lives.",
-        header: <Skeleton />,
-        icon: <IconTableColumn className="h-4 w-4 text-neutral-500" />,
+        "a cloud based video transcoding app hosted and powered by AWS services",
+        image: "/assets/header_aws.png"
     },
     {
-        title: "The Pursuit of Knowledge",
-        description: "Join the quest for understanding and enlightenment.",
-        header: <Skeleton />,
-        icon: <IconArrowWaveRightUp className="h-4 w-4 text-neutral-500" />,
+        title: "Udemy Certificates",
+        image: "/assets/header_udemy.png"
     },
     {
-        title: "The Joy of Creation",
-        description: "Experience the thrill of bringing ideas to life.",
-        header: <Skeleton />,
-        icon: <IconBoxAlignTopLeft className="h-4 w-4 text-neutral-500" />,
+        title: "Minor Projects",
+        image: "/assets/header_minor_projects.jpg"
     },
     {
-        title: "The Spirit of Adventure",
-        description: "Embark on exciting journeys and thrilling discoveries.",
-        header: <Skeleton />,
-        icon: <IconBoxAlignRightFilled className="h-4 w-4 text-neutral-500" />,
+        title: "Experian",
+        description: "my first internship.",
+        image: "/assets/header_experian.png"
     },
     ];
 
@@ -199,8 +175,8 @@ function Portfolio(){
                         key={i}
                         title={item.title}
                         description={item.description}
-                        header={item.header}
-                        icon={item.icon}
+                        image={item.image}
+                        variant={i === 3 || i === 6 ? "large" : "small"}
                         className={i === 3 || i === 6 ? "md:col-span-2" : ""}
                         />
                     ))}
