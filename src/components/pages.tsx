@@ -3,10 +3,28 @@ import { useState, useCallback } from 'react'
 import { ScrollArea } from "@/components/ui/scroll-area"
 import { BaseNode, ContentNode } from '@/components/base-node'
 import { BentoGrid, BentoGridItem } from "@/components/ui/bento-grid";
+import {
+    Drawer,
+    DrawerClose,
+    DrawerContent,
+    DrawerDescription,
+    DrawerFooter,
+    DrawerHeader,
+    DrawerTitle,
+    DrawerTrigger,
+  } from "@/components/ui/drawer"
+import {
+    Tooltip,
+    TooltipContent,
+    TooltipTrigger,
+} from "@/components/ui/tooltip"
 import { Button } from './ui/button';
 import { motion } from 'framer-motion'
-
-import { IconBrandLinkedin, IconBrandGithub, IconBrandWhatsapp, IconBrandGmail, IconBrandInstagram, IconBrandX } from '@tabler/icons-react'
+import { IconBrandLinkedin, IconBrandGithub, IconBrandWhatsapp, IconMail, IconBrandInstagram, IconBrandX, IconCopy } from '@tabler/icons-react'
+import { CircleFlag } from "react-circle-flags";
+import { PiMicrosoftOutlookLogoFill } from "react-icons/pi";
+import { SiGmail } from "react-icons/si";
+import { toast } from "sonner"
 
 import '@xyflow/react/dist/style.css';
 
@@ -213,22 +231,22 @@ function Links(){
     return(
         <div className="h-full flex items-center justify-center">
             <div className="h-full w-full rounded-md">
-                <div className="relative isolate px-8 py-5 m-15 pt-15 lg:px-8">
-                    <div className="title text-center p-5">
+                <div className="relative isolate py-8 m-15 lg:px-8">
+                    <div className="title text-center">
                         <h1 className="text-9xl font-[Hedvig Sans]">that's all folks!</h1>
                     </div>
                 </div>
-                <div className="mt-8 m-10">
+                <div className="m-10">
                     <span className="description p-2 px-10 rounded-3xl text-md border bg-card">professional enquiries</span>
                 </div>
-                <div className="mt-8 m-10">
+                <div className="m-10">
                     <motion.button
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.95 }}
                     transition={{ type: "spring", stiffness: 300, damping: 15 }}
                     >
-                        <Button variant="ghost" className="p-10 m-2 rounded-2xl border">
-                            <a className="p-0" href="https://www.linkedin.com/in/joshua-chan-bp37/" target="_blank">
+                        <Button variant="ghost" className="p-8 m-2 rounded-2xl border" asChild>
+                            <a href="https://www.linkedin.com/in/joshua-chan-bp37/" target="_blank">
                                 <IconBrandLinkedin className="size-10" />
                             </a>
                         </Button>
@@ -239,8 +257,8 @@ function Links(){
                     whileTap={{ scale: 0.95 }}
                     transition={{ type: "spring", stiffness: 300, damping: 15 }}
                     >
-                        <Button variant="ghost" className="p-10 m-2 rounded-2xl border">
-                            <a className="p-0" href="https://github.com/jawshuachan" target="_blank">
+                        <Button variant="ghost" className="p-8 m-2 rounded-2xl border" asChild>
+                            <a href="https://github.com/jawshuachan" target="_blank">
                                 <IconBrandGithub className="size-10" />
                             </a>
                         </Button>
@@ -251,11 +269,101 @@ function Links(){
                     whileTap={{ scale: 0.95 }}
                     transition={{ type: "spring", stiffness: 300, damping: 15 }}
                     >
-                        <Button variant="ghost" className="p-10 m-2 rounded-2xl border">
-                            <a className="p-0" href="https://www.linkedin.com/in/joshua-chan-bp37/" target="_blank">
-                                <IconBrandWhatsapp className="size-10" />
-                            </a>
-                        </Button>
+                        <Drawer>
+                            <DrawerTrigger asChild>
+                                <Button variant="ghost" className="p-8 m-2 rounded-2xl border">
+                                    <IconBrandWhatsapp className="size-10" />
+                                </Button> 
+                            </DrawerTrigger>
+                            <DrawerContent>
+                                <div className="mx-auto w-full max-w-sm pt-5">
+                                    <DrawerHeader>
+                                        <DrawerTitle>Contact Numbers</DrawerTitle>
+                                        <DrawerDescription>Please contact me for professional enquiries only.</DrawerDescription>
+                                    </DrawerHeader>
+                                </div>
+                                <div className="pt-3">
+                                    <div className="flex flex-col items-center justify-center">
+                                        <div className="flex flex-row items-center justify-center pb-5 gap-5">
+                                        <span className='inline-block overflow-hidden w-5 h-5 rounded-xs'>
+                                                <CircleFlag countryCode='my' className='h-full h-full object-cover' />
+                                            </span>
+                                            <p>+60-12-891-8936</p>
+                                            <Tooltip>
+                                                <TooltipTrigger>
+                                                    <motion.button
+                                                    whileHover={{ scale: 1.1 }}
+                                                    whileTap={{ scale: 0.95 }}
+                                                    transition={{ type: "spring", stiffness: 300, damping: 15 }}
+                                                    >
+                                                        <Button 
+                                                        variant={"outline"} 
+                                                        onClick={() => {
+                                                            navigator.clipboard
+                                                              .writeText("+60128918936")
+                                                              .then(() => {
+                                                                toast.success("Copied to clipboard!");
+                                                              })
+                                                              .catch(() => {
+                                                                toast.error("Failed to copy!");
+                                                              });
+                                                          }}
+                                                        >
+                                                            <IconCopy />
+                                                        </Button>
+                                                    </motion.button>
+                                                </TooltipTrigger>
+                                                <TooltipContent>
+                                                    <p>Copy!</p>
+                                                </TooltipContent>
+                                            </Tooltip>
+                                        </div>
+                                        <div className="flex flex-row items-center justify-center pb-2 gap-5">
+                                            <span className='inline-block overflow-hidden w-5 h-5 rounded-xs'>
+                                                <CircleFlag countryCode="au" className='h-full h-full object-cover' />
+                                            </span>
+                                            <p>+61-45-235-8936</p>
+                                            <Tooltip>
+                                                <TooltipTrigger>
+                                                    <motion.button
+                                                    whileHover={{ scale: 1.1 }}
+                                                    whileTap={{ scale: 0.95 }}
+                                                    transition={{ type: "spring", stiffness: 300, damping: 15 }}
+                                                    >
+                                                        <Button 
+                                                        variant={"outline"} 
+                                                        onClick={() => {
+                                                            navigator.clipboard
+                                                              .writeText("+61452358936")
+                                                              .then(() => {
+                                                                toast.success("Copied to clipboard!");
+                                                              })
+                                                              .catch(() => {
+                                                                toast.error("Failed to copy!");
+                                                              });
+                                                          }}
+                                                        >
+                                                            <IconCopy />
+                                                        </Button>
+                                                    </motion.button>
+                                                </TooltipTrigger>
+                                                <TooltipContent>
+                                                    <p>Copy!</p>
+                                                </TooltipContent>
+                                            </Tooltip>
+                                        </div>
+                                    </div>
+                                </div>
+                                <DrawerFooter>
+                                    <DrawerClose>
+                                        <div className='pb-8'>
+                                            <Button variant="outline" className='w-80'>Close</Button>
+                                        </div>
+                                    </DrawerClose>
+                                </DrawerFooter>
+                            </DrawerContent>
+                            
+                        </Drawer>
                     </motion.button>
                     
                     <motion.button
@@ -263,25 +371,114 @@ function Links(){
                     whileTap={{ scale: 0.95 }}
                     transition={{ type: "spring", stiffness: 300, damping: 15 }}
                     >
-                        <Button variant="ghost" className="p-10 m-2 rounded-2xl border">
-                            <a className="p-0" href="https://www.linkedin.com/in/joshua-chan-bp37/" target="_blank">
-                                <IconBrandGmail className="size-10" />
-                            </a>
-                        </Button>
+                        <Drawer>
+                                <DrawerTrigger asChild>
+                                    <Button variant="ghost" className="p-8 m-2 rounded-2xl border" >
+                                        <IconMail className="size-10" />
+                                    </Button>
+                                </DrawerTrigger>
+                                <DrawerContent>
+                                    <div className="mx-auto w-full max-w-sm pt-5">
+                                        <DrawerHeader>
+                                            <DrawerTitle>Email</DrawerTitle>
+                                            <DrawerDescription>Please contact me for professional enquiries only.</DrawerDescription>
+                                        </DrawerHeader>
+                                    </div>
+                                    <div className="pt-3">
+                                        <div className="flex flex-col items-center justify-center">
+                                            <div className="flex flex-row items-center justify-center pb-5 gap-5">
+                                                <span className='inline-block overflow-hidden w-5 h-5 rounded-xs'>
+                                                    <SiGmail />
+                                                </span>
+                                                <p>joshuawjchan@gmail.com</p>
+                                                <Tooltip>
+                                                    <TooltipTrigger>
+                                                        <motion.button
+                                                        whileHover={{ scale: 1.1 }}
+                                                        whileTap={{ scale: 0.95 }}
+                                                        transition={{ type: "spring", stiffness: 300, damping: 15 }}
+                                                        >
+                                                            <Button 
+                                                            variant={"outline"} 
+                                                            onClick={() => {
+                                                                navigator.clipboard
+                                                                .writeText("joshuawjchan@gmail.com")
+                                                                .then(() => {
+                                                                    toast.success("Copied to clipboard!");
+                                                                })
+                                                                .catch(() => {
+                                                                    toast.error("Failed to copy!");
+                                                                });
+                                                            }}
+                                                            >
+                                                                <IconCopy />
+                                                            </Button>
+                                                        </motion.button>
+                                                    </TooltipTrigger>
+                                                    <TooltipContent>
+                                                        <p>Copy!</p>
+                                                    </TooltipContent>
+                                                </Tooltip>
+                                            </div>
+                                            <div className="flex flex-row items-center justify-center pb-2 gap-5">
+                                                <span className='inline-block overflow-hidden w-5 h-5 rounded-xs'>
+                                                    <PiMicrosoftOutlookLogoFill />
+                                                </span>
+                                                <p>joshuawjchan@hotmail.com</p>
+                                                <Tooltip>
+                                                    <TooltipTrigger>
+                                                        <motion.button
+                                                        whileHover={{ scale: 1.1 }}
+                                                        whileTap={{ scale: 0.95 }}
+                                                        transition={{ type: "spring", stiffness: 300, damping: 15 }}
+                                                        >
+                                                            <Button 
+                                                            variant={"outline"} 
+                                                            onClick={() => {
+                                                                navigator.clipboard
+                                                                .writeText("joshuawjchan@hotmail.com")
+                                                                .then(() => {
+                                                                    toast.success("Copied to clipboard!");
+                                                                })
+                                                                .catch(() => {
+                                                                    toast.error("Failed to copy!");
+                                                                });
+                                                            }}
+                                                            >
+                                                                <IconCopy />
+                                                            </Button>
+                                                        </motion.button>
+                                                    </TooltipTrigger>
+                                                    <TooltipContent>
+                                                        <p>Copy!</p>
+                                                    </TooltipContent>
+                                                </Tooltip>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <DrawerFooter>
+                                        <DrawerClose>
+                                            <div className='pb-8'>
+                                                <Button variant="outline" className='w-80'>Close</Button>
+                                            </div>
+                                        </DrawerClose>
+                                    </DrawerFooter>
+                                </DrawerContent>
+                            </Drawer>
                     </motion.button>
                     
                 </div>
-                <div className="mt-8 m-10">
+                <div className="m-10">
                     <span className="description p-2 px-10 rounded-3xl text-md border bg-card">socials</span>
                 </div>
-                <div className="mt-8 m-10">
+                <div className="m-10">
                     <motion.button
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.95 }}
                     transition={{ type: "spring", stiffness: 300, damping: 15 }}
                     >
-                        <Button variant="ghost" className="p-10 m-2 rounded-2xl border">
-                            <a className="p-0" href="https://www.instagram.com/joshuaachan/" target="_blank">
+                        <Button variant="ghost" className="p-8 m-2 rounded-2xl border" asChild>
+                            <a href="https://www.instagram.com/joshuaachan/" target="_blank">
                                 <IconBrandInstagram className="size-10" />
                             </a>
                         </Button>
@@ -292,8 +489,8 @@ function Links(){
                     whileTap={{ scale: 0.95 }}
                     transition={{ type: "spring", stiffness: 300, damping: 15 }}
                     >
-                        <Button variant="ghost" className="p-10 m-2 rounded-2xl border">
-                            <a className="p-0" href="https://www.x.com/jawshuachan/" target="_blank">
+                        <Button variant="ghost" className="p-8 m-2 rounded-2xl border" asChild>
+                            <a href="https://www.x.com/jawshuachan/" target="_blank">
                                 <IconBrandX className="size-10" />
                             </a>
                         </Button>

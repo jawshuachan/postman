@@ -1,5 +1,6 @@
 import NavigationBar from '@/components/navigation-bar'
 import { ThemeProvider } from "@/components/theme-provider"
+import { Toaster } from "@/components/ui/sonner"
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'motion/react';
 import Footer from "@/components/footer"
@@ -26,8 +27,10 @@ function App({children}: {children? : React.ReactNode}) {
   return (
     <ThemeProvider defaultTheme="light" storageKey="vite-ui-theme">
       <div className="h-screen flex flex-col overflow-hidden">
+        <Toaster />
         <NavigationBar currentView={view} onChangeView={setView} />
         <main className='flex-1 min-h-0'>
+          
           <div className="m-5 h-full">
             { children }
             <AnimatePresence mode='wait'>
