@@ -20,7 +20,7 @@ import {
 } from "@/components/ui/tooltip"
 import { Button } from './ui/button';
 import { motion } from 'framer-motion'
-import { IconBrandLinkedin, IconBrandGithub, IconBrandWhatsapp, IconMail, IconBrandInstagram, IconBrandX, IconCopy } from '@tabler/icons-react'
+import { IconBrandLinkedin, IconBrandGithub, IconBrandWhatsapp, IconMail, IconBrandInstagram, IconBrandX, IconCopy, IconBrandFacebook } from '@tabler/icons-react'
 import { CircleFlag } from "react-circle-flags";
 import { PiMicrosoftOutlookLogoFill } from "react-icons/pi";
 import { SiGmail } from "react-icons/si";
@@ -62,31 +62,31 @@ const initialNodes: Node[] = [
     { id: 'n5', type: 'base', position: { x: -650, y: 700 }, data: { label: 'Hosting' } },
   
     // Frameworks
-    { id: 'n6',  type: 'content', position: { x: -100, y: -210 },  data: { label: 'Laravel', image: '/assets/laravel.svg', proficiency: "3", xp: "2 years" } },
-    { id: 'n7',  type: 'content', position: { x: -520, y: -240 },  data: { label: 'React',   image: '/assets/React.svg',   proficiency: "4", xp: "2 years" } },
-    { id: 'n8',  type: 'content', position: { x: -900, y: -220 },  data: { label: 'Next.js', image: '/assets/nextjs.svg',  proficiency: "5", xp: "2 years" } },
-    { id: 'n9',  type: 'content', position: { x: -1300, y: -200 }, data: { label: 'Vite',    image: '/assets/vite.svg',    proficiency: "3", xp: "2 years" } },
+    { id: 'n6',  type: 'content', position: { x: -100, y: -210 },  data: { label: 'Laravel', image: '/assets/laravel.svg', proficiency: "3", xp: "6 months" } },
+    { id: 'n7',  type: 'content', position: { x: -520, y: -240 },  data: { label: 'React',   image: '/assets/React.svg',   proficiency: "4", xp: "3 years" } },
+    { id: 'n8',  type: 'content', position: { x: -900, y: -220 },  data: { label: 'Next.js', image: '/assets/nextjs.svg',  proficiency: "5", xp: "1 year" } },
+    { id: 'n9',  type: 'content', position: { x: -1300, y: -200 }, data: { label: 'Vite',    image: '/assets/vite.svg',    proficiency: "3", xp: "2 month" } },
   
     // Languages
-    { id: 'n10', type: 'content', position: { x: 100, y: -580 },   data: { label: 'C++',        image: '/assets/C++.svg',        proficiency: "2", xp: "2 years" } },
-    { id: 'n11', type: 'content', position: { x: 500, y: -580 },   data: { label: 'C',          image: '/assets/C.svg',          proficiency: "2", xp: "2 years" } },
-    { id: 'n12', type: 'content', position: { x: 900, y: -580 },   data: { label: 'Python',     image: '/assets/python.svg',     proficiency: "5", xp: "2 years" } },
-    { id: 'n13', type: 'content', position: { x: 1300, y: -580 },  data: { label: 'Java',       image: '/assets/java.svg',       proficiency: "5", xp: "2 years" } },
-    { id: 'n14', type: 'content', position: { x: 1700, y: -580 },  data: { label: 'Javascript', image: '/assets/javascript.svg', proficiency: "3", xp: "2 years" } },
-    { id: 'n15', type: 'content', position: { x: 2100, y: -580 },  data: { label: 'Typescript', image: '/assets/typescript.svg', proficiency: "3", xp: "2 years" } },
+    { id: 'n10', type: 'content', position: { x: 100, y: -580 },   data: { label: 'C++',        image: '/assets/C++.svg',        proficiency: "2", xp: "3 years" } },
+    { id: 'n11', type: 'content', position: { x: 500, y: -580 },   data: { label: 'C',          image: '/assets/C.svg',          proficiency: "2", xp: "6 months" } },
+    { id: 'n12', type: 'content', position: { x: 900, y: -580 },   data: { label: 'Python',     image: '/assets/python.svg',     proficiency: "5", xp: "4 years" } },
+    { id: 'n13', type: 'content', position: { x: 1300, y: -580 },  data: { label: 'Java',       image: '/assets/java.svg',       proficiency: "5", xp: "4 years" } },
+    { id: 'n14', type: 'content', position: { x: 1700, y: -580 },  data: { label: 'Javascript', image: '/assets/javascript.svg', proficiency: "3", xp: "1 year" } },
+    { id: 'n15', type: 'content', position: { x: 2100, y: -580 },  data: { label: 'Typescript', image: '/assets/typescript.svg', proficiency: "3", xp: "3 months" } },
     { id: 'n16', type: 'content', position: { x: -300, y: -580 },  data: { label: 'R',          image: '/assets/R.svg',          proficiency: "2", xp: "2 years" } },
-    { id: 'n17', type: 'content', position: { x: -700, y: -580 },  data: { label: 'PHP',        image: '/assets/PHP.svg',        proficiency: "4", xp: "2 years" } },
-    { id: 'n18', type: 'content', position: { x: -1100, y: -580 }, data: { label: 'HTML 5',     image: '/assets/HTML5.svg',      proficiency: "5", xp: "2 years" } },
+    { id: 'n17', type: 'content', position: { x: -700, y: -580 },  data: { label: 'PHP',        image: '/assets/PHP.svg',        proficiency: "4", xp: "3 years" } },
+    { id: 'n18', type: 'content', position: { x: -1100, y: -580 }, data: { label: 'HTML 5',     image: '/assets/HTML5.svg',      proficiency: "5", xp: "4 years" } },
   
     // Design
-    { id: 'n19', type: 'content', position: { x: 450, y: 0 },    data: { label: 'Figma',    image: '/assets/Figma.svg',    proficiency: "5", xp: "2 years" } },
-    { id: 'n20', type: 'content', position: { x: 910, y: -80 },  data: { label: 'Rive',     image: '/assets/Rive.svg',     proficiency: "2", xp: "2 years" } },
-    { id: 'n21', type: 'content', position: { x: 1300, y: -50 }, data: { label: 'ShadcnUI', image: '/assets/ShadcnUI.svg', proficiency: "3", xp: "2 years" } },
-    { id: 'n22', type: 'content', position: { x: 1750, y: 200 }, data: { label: 'Tailwind', image: '/assets/tailwind.svg', proficiency: "3", xp: "2 years" } },
+    { id: 'n19', type: 'content', position: { x: 450, y: 0 },    data: { label: 'Figma',    image: '/assets/Figma.svg',    proficiency: "5", xp: "1.5 years" } },
+    { id: 'n20', type: 'content', position: { x: 910, y: -80 },  data: { label: 'Rive',     image: '/assets/Rive.svg',     proficiency: "2", xp: "1 month" } },
+    { id: 'n21', type: 'content', position: { x: 1300, y: -50 }, data: { label: 'ShadcnUI', image: '/assets/ShadcnUI.svg', proficiency: "3", xp: "3 months" } },
+    { id: 'n22', type: 'content', position: { x: 1750, y: 200 }, data: { label: 'Tailwind', image: '/assets/tailwind.svg', proficiency: "3", xp: "6 months" } },
   
     // Hosting
     { id: 'n23', type: 'content', position: { x: -1300, y: 350 }, data: { label: 'AWS',    image: '/assets/AWS.svg',    proficiency: "4", xp: "1 year" } },
-    { id: 'n24', type: 'content', position: { x: -900, y: 350 },  data: { label: 'Vercel', image: '/assets/Vercel.svg', proficiency: "2", xp: "2 years" } },
+    { id: 'n24', type: 'content', position: { x: -900, y: 350 },  data: { label: 'Vercel', image: '/assets/Vercel.svg', proficiency: "2", xp: "3 months" } },
   ];
 
   const initialEdges = [
@@ -217,20 +217,10 @@ function Portfolio(){
 
 //--------------------------------------------------------------- links ---------------------------------------------------------------
 
-// function openNewBackgroundTab(){    
-//     var a = document.createElement("a");    
-//     a.href = "http://www.google.com/";    
-//     var evt = document.createEvent("MouseEvents");    
-
-//     //the tenth parameter of initMouseEvent sets ctrl key    
-//     evt.initMouseEvent("click", true, true, window, 0, 0, 0, 0, 0,true, false, false, false, 0, null);    
-//     a.dispatchEvent(evt);
-// }
-
 function Links(){
     return(
         <div className="h-full flex items-center justify-center">
-            <div className="h-full w-full rounded-md">
+            <div className="h-full w-full rounded-md border">
                 <div className="relative isolate py-8 m-15 lg:px-8">
                     <div className="title text-center">
                         <h1 className="text-9xl font-[Hedvig Sans]">that's all folks!</h1>
@@ -495,7 +485,18 @@ function Links(){
                             </a>
                         </Button>
                     </motion.button>
-                    
+
+                    <motion.button
+                    whileHover={{ scale: 1.1 }}
+                    whileTap={{ scale: 0.95 }}
+                    transition={{ type: "spring", stiffness: 300, damping: 15 }}
+                    >
+                        <Button variant="ghost" className="p-8 m-2 rounded-2xl border" asChild>
+                            <a href="https://www.facebook.com/37.JoshuaChan" target="_blank">
+                                <IconBrandFacebook className="size-10" />
+                            </a>
+                        </Button>
+                    </motion.button>
                 </div>
             </div>
         </div>
