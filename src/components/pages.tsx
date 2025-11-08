@@ -20,7 +20,7 @@ import {
 } from "@/components/ui/tooltip"
 import { Button } from './ui/button';
 import { motion } from 'framer-motion'
-import { IconBrandLinkedin, IconBrandGithub, IconBrandWhatsapp, IconMail, IconBrandInstagram, IconBrandX, IconCopy, IconBrandFacebook } from '@tabler/icons-react'
+import { IconBrandLinkedin, IconBrandGithub, IconBrandWhatsapp, IconMail, IconBrandInstagram, IconBrandX, IconCopy, IconBrandFacebook, IconLink } from '@tabler/icons-react'
 import { CircleFlag } from "react-circle-flags";
 import { PiMicrosoftOutlookLogoFill } from "react-icons/pi";
 import { SiGmail } from "react-icons/si";
@@ -162,34 +162,159 @@ function Portfolio(){
     const items = [
     {
         title: "University Projects",
-        image: "/assets/header_cab202.png"
+        image: "/assets/header_cab202.png",
+        content: 
+        <div>Coming Soon!</div>
     },
     {
         title: "VIRA",
-        image: "/assets/header_vira.png"
+        image: "/assets/header_vira.png",
+        content: 
+        <div>
+            <div>
+                <img src="/assets/content_vira_header.png" className="rounded-md" />
+            </div>
+            <p className="py-5 text-justify">
+                VIRA (Virtual Immersion Risk Assessment) is my capstone project, a two semester-long collaboration with 
+                Filigree Consulting to design a virtual-reality training prototype for Queensland’s child protection services. 
+                The project’s aim is to help new child service practitioners recognise and assess environmental risk factors through 
+                immersive, scenario-based learning.
+            </p>
+
+            <img src="/assets/content_vira_designs.png" className="rounded-md w-full" />
+            <p className="py-5 text-justify">
+                Our Phase 1 prototype focused on UX design, interaction flow, and scenario logic across a distinct 
+                a suburban home environment while Phase 2 was pure development. I contributed to the UI/UX design 
+                system, Figma mock-ups, and Unity implementation of the main hub, onboarding flow, and scenario gallery. 
+                These scenes allow users to navigate through virtual spaces, adjust scenario risk toggles, and experience 
+                realistic decision-making contexts.
+            </p>
+
+            <div className="description p-2 px-6 mx-15 rounded-3xl text-md border bg-card">
+                <div className="flex flex-row items-center overflow-hidden">
+                <IconLink />
+                <a
+                    className="px-2 hover:underline"
+                    href="https://github.com/Project-VIRA-PoC/Project-VIRA-PoC-clean"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    github.com/Project-VIRA-PoC-clean
+                </a>
+                </div>
+            </div>
+
+            <p className="pt-5 text-justify">
+                For the first time ever, I experienced what it was like to facilitate a user feedback group, from preparing prototype demonstration
+                to observing real user interactions and gathering insights for refinement. Seeing users engage naturally with our onboarding process and scenario 
+                flow was both validating and eye-opening.
+            </p>
+            <div className="pt-5">
+                <img src="/assets/content_vira_end.png" className="rounded-md" />
+            </div>
+            
+            <p className="py-5 text-justify">
+                Our project did quite well overall, we were featured as one of the highlighted projects in our university's IT Expo Showcase. 
+                It was so increadibly rewarding to demonstrate the prototype live to students, faculty and industry partners, receiving geniune interest in the portential
+                of VR for training and risk assessment.
+            </p>
+            </div>
     },
     {
         title: "7 Manning's RSVP",
-        image: "/assets/header_housewarming.jpg"
+        image: "/assets/header_housewarming.jpg",
+        content: 
+        <div>
+            <img src="/assets/content_manning_lead.png" className="rounded-md"/>
+            <p className="py-5 text-justify">
+                7 Manning’s RSVP was a personal web project I built with my roommates, Rex and Jude to streamline invitations and guest responses for our housewarming! 
+                It was a lightweight React application deployed via GitHub Pages, with a Firebase Database handling live reservation updates and authentication.
+            </p>
+
+            <img src="/assets/content_manning_content.png" className="rounded-md"/>
+            <p className="py-5 text-justify">
+                We made sure that the UI was really simple for anyone to understand.
+                People who wanted to RSVP could provide their name, a gift they'd like to give :P and a final confirmation since we needed a headcount for such a small place and food.
+                We kept the site up just for fun if you'd like to take a look.
+            </p>
+
+            <div className="description p-2 px-10 mx-20 rounded-3xl text-md border bg-card">
+                <div className="flex flex-row items-center overflow-hidden">
+                <IconLink />
+                <a
+                    className="px-2 hover:underline"
+                    href="https://rsvpmanning-8db32.web.app/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    rsvpmanning-8db32.web.app
+                </a>
+                </div>
+            </div>
+            <p className="py-5 text-justify">
+                And here's us planning out some stuff together at our old place. We will miss you 7 Manning 💔.
+            </p>
+            <img src="/assets/content_manning_pic.png" className="rounded-lg" />
+        </div>
     },
     {
         title: "Monogrid",
         description:
         "a cloud based video transcoding app hosted and powered by AWS services",
-        image: "/assets/header_aws.png"
+        image: "/assets/header_aws.png",
+        content: 
+        <div>
+            <img src="/assets/content_monogrid_lead.png" className="rounded-md"/>
+            <p className="py-5 text-justify" >
+                Monogrid is a Cloud Computing project for one of my university’s units which I wanted to highlight since I had major takeaways and a really good learning experience.
+            </p>
+            <img src="/assets/content_monogrid_diagram.png" className="rounded-md"/>
+            <p className="py-5 text-justify">
+                This video transcoding project was hosted on an EC2 instance fronted by a CloudFront CDN where transcode jobs on ECS can be scaled horizontally based on the SQS (Simple Queue System) depth. 
+                The AWS environment provided also allowed me to explore various database and data storage options like RDS (PostgreSQL), DynamoDB, Elasticache and S3 objects store. 
+                The app's domain is right here.
+            </p>  
+            <div className="description p-2 px-10 mx-20 rounded-3xl text-md border bg-card">
+                <div className="flex flex-row items-center overflow-hidden">
+                    <IconLink />
+                    <a className="px-2 hover:underline" href="https://start.monogrid.cab432.com">start.monogrid.cab432.com</a>
+                </div>
+            </div>
+            <p className="pt-5 text-justify"> 
+                While I would really like for you to try this website out for yourself, I am pretty sure my university would have pruned the domain registry by the time you are reading this. 
+                If you do have a chance to try it out, I hope you enjoy navigating the app. 
+                This project's code is also available on my GitHub account if you would still like to take a peek.
+            </p>
+            <p className="py-5 text-justify">
+                I found that this hands on learning experience had a profound effect on myself, since I was able to actually interact with these cloud services to compartmentalise and optimise features to be production ready (i.e. scalable and accessible). 
+                Moving forward I want to expand on this domain of expertise more, hopefully becoming a Solutions Architect in the future.
+            </p>
+        </div>
     },
     {
         title: "Udemy Certificates",
-        image: "/assets/header_udemy.png"
+        image: "/assets/header_udemy.png",
+        content: 
+        <div>
+            <p>Coming Soon!</p>
+        </div>
     },
     {
         title: "Minor Projects",
-        image: "/assets/header_minor_projects.jpg"
+        image: "/assets/header_minor_projects.jpg",
+        content: 
+        <div>
+            <p>Coming Soon!</p>
+        </div>
     },
     {
         title: "Experian",
         description: "my first internship.",
-        image: "/assets/header_experian.png"
+        image: "/assets/header_experian.png",
+        content: 
+        <div>
+            <p>Coming Soon!</p>
+        </div>
     },
     ];
 
@@ -206,6 +331,7 @@ function Portfolio(){
                         image={item.image}
                         variant={i === 3 || i === 6 ? "large" : "small"}
                         className={i === 3 || i === 6 ? "md:col-span-2" : ""}
+                        content={item.content}
                         />
                     ))}
                 </BentoGrid> 
@@ -220,7 +346,7 @@ function Portfolio(){
 function Links(){
     return(
         <div className="h-full flex items-center justify-center">
-            <div className="h-full w-full rounded-md border">
+            <div className="h-full w-full rounded-md">
                 <div className="relative isolate py-8 m-15 lg:px-8">
                     <div className="title text-center">
                         <h1 className="text-9xl font-[Hedvig Sans]">that's all folks!</h1>
@@ -465,7 +591,6 @@ function Links(){
                     <motion.button
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.95 }}
-                    transition={{ type: "spring", stiffness: 300, damping: 15 }}
                     >
                         <Button variant="ghost" className="p-8 m-2 rounded-2xl border" asChild>
                             <a href="https://www.instagram.com/joshuaachan/" target="_blank">
