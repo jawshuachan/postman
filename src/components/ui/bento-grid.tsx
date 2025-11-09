@@ -92,12 +92,14 @@ export const BentoGridItem = ({
         <DialogContent>
           <DialogHeader>
             <DialogTitle>
-              <h2 className="subtitle">{title}</h2>
+              <h2 className="subtitle px-5">{title}</h2>
             </DialogTitle>
           </DialogHeader>
           <DialogDescription>
-            <ScrollArea className="h-[calc(66vh-6rem)] pr-5">
-              {content}
+            <ScrollArea className="h-[calc(66vh-6rem)] px-5">
+              <div className="mx-auto max-w-2xl space-y-10">
+                {content}
+              </div>
             </ScrollArea>
           </DialogDescription>
         </DialogContent>
@@ -137,13 +139,15 @@ export const BentoGridItem = ({
       <DialogContent>
         <DialogHeader>
           <DialogTitle>
-            <h2 className="subtitle">{title}</h2>
+            <h2 className="subtitle px-5">{title}</h2>
           </DialogTitle>
         </DialogHeader>
         <DialogDescription>
-          <ScrollArea className="h-[calc(66vh-6rem)] pr-4">
-            {content}
-          </ScrollArea>
+          <ScrollArea className="h-[calc(66vh-6rem)] px-5">
+            <div className="mx-auto max-w-2xl space-y-10">
+              {content}
+            </div>
+            </ScrollArea>
         </DialogDescription>
       </DialogContent>
     </Dialog>
