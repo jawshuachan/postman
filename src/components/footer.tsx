@@ -6,8 +6,8 @@ import darkZenGraphic from "/assets/darkPillars.svg"
 export default function Footer(){
 
     return(
-        <footer className="w-full">
-            <div className='flex items-left gap-3 py-12 w-full'>
+        <footer className="relative w-full pb-5 pointer-events-none">
+            <div className='relative z-10 flex items-left gap-3 py-12 w-full pointer-events-auto'>
                 <div className='p-2'>
                     <img className='w-20 dark:hidden' src={flowerGraphic} alt="hydrangea graphic"/>
                     <img className='w-20 hidden dark:block' src={darkFlowerGraphic} alt="hydrangea graphic"/>

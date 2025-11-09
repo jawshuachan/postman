@@ -5,6 +5,7 @@ import { toast } from "sonner"
 import { ImageWithSkeleton } from './image-skeleton';
 import LinkPill from './link-pill'
 import { ScrollArea } from "@/components/ui/scroll-area"
+import { ProgressiveBlur } from './ui/progressive-blur';
 import { BaseNode, ContentNode } from '@/components/base-node'
 import { BentoGrid, BentoGridItem } from "@/components/ui/bento-grid";
 import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip"
@@ -448,8 +449,49 @@ function Portfolio(){
         title: "Minor Projects",
         image: "/assets/header_minor_projects.jpg",
         content: 
-        <div>
-            <p>Coming Soon!</p>
+        <div className="space-y-8">
+          {/* Rain Alert App */}
+          <div className="space-y-4">
+            <p><strong>Rain Predictor</strong></p>
+            <p className="text-justify">
+              A Python automation script that checks the next 12 hours of weather data using the OpenWeatherMap API and 
+              sends an SMS alert to my phone via Twilio if rain is forecasted. 
+              This project combined multiple APIs, JSON parsing, and environment variable management to create a 
+              real-world automation pipeline that runs entirely from the command line. 
+              It was one of my favourite exercises because it connected data processing, condition logic, and an external notification service.
+            </p>
+          </div>
+      
+          {/* Movie Tierlist Database */}
+          <div className="space-y-4">
+            <p><strong>Movie Tierlist Database</strong></p>
+            <p className="text-justify">
+              A full-stack project using Python, Flask, and MySQL that allows users to browse, rank, and comment on their favourite movies. 
+              The app integrates the TMDb API for film metadata and stores user rankings in a local MySQL database, 
+              demonstrating CRUD operations and ORM-style interactions. 
+              I learned to design relational schemas, handle form submissions, and connect Flask routes to persistent data layers.
+            </p>
+          </div>
+      
+          {/* Flight Price Tracker */}
+          <div className="space-y-4">
+            <p><strong>Flight Price Tracker</strong></p>
+            <p className="text-justify">
+              A Python-based deal finder that monitors flight prices using the Tequila Kiwi API and emails the user whenever a price drop occurs. 
+              It features a Google Sheet integration via Sheety for destination management and uses SMTP for notification delivery. 
+              This project taught me about RESTful APIs, authentication tokens, and how to manage rate-limited API calls for continuous data tracking.
+            </p>
+          </div>
+      
+          {/* Habit Tracker */}
+          <div className="space-y-4">
+            <p><strong>Habit Tracker</strong></p>
+            <p className="text-justify">
+              A data visualisation project that uses the Pixela API to log and graph daily habits (like coding, fitness, or reading). 
+              The program interacts with a REST API through POST and PUT requests to update personal streaks, displaying progress as a pixel grid. 
+              It introduced me to RESTful endpoint design, HTTP methods, and the power of visual feedback in habit formation.
+            </p>
+          </div>
         </div>
     },
     {
@@ -458,7 +500,31 @@ function Portfolio(){
         image: "/assets/header_experian.png",
         content: 
         <div>
-            <p>Coming Soon!</p>
+            <ImageWithSkeleton src="/assets/content_experian_body.png" alt="Experian office space" className="rounded-md"/>
+            <p className="py-5 text-justify">
+                Experian was my very first internship, and honestly, it was where I really started to connect everything I’d been learning about data and AI. 
+                I joined as a tech intern on the IT team, where I explored how large-scale data platforms could integrate emerging generative AI systems for smarter client insights. 
+                It was my first exposure to enterprise-level architecture, and how tools like SQL databases, pipelines, and API models all come together to power decisioning platforms that affect millions of people.
+            </p>
+
+            <ImageWithSkeleton src="/assets/content_experian_stuff.png" alt="Experian AI research workspace" className="rounded-md"/>
+            <p className="pt-5 text-justify">
+                My main focus was on researching the potential of generative AI in business intelligence — how natural language models could help streamline report generation, 
+                query structured databases more intuitively, and assist non-technical users in drawing insights from complex data. 
+                I experimented with prompt design, embeddings, and text-to-SQL methods using Python prototypes while exploring how to safely align them with Experian’s compliance and privacy frameworks.
+            </p>
+            <p className="py-5 text-justify">
+                Alongside the research, I deepened my understanding of traditional data systems, learning how Experian manages massive relational databases, 
+                maintains data integrity across pipelines, and designs dashboards that scale globally. 
+                It gave me an appreciation for how both classical and modern approaches can work together: structured data foundations supporting AI-driven automation on top.
+            </p>
+
+            <ImageWithSkeleton src="/assets/content_experian_end.png" alt="Experian research group" className="rounded-md"/>
+            <p className="py-5 text-justify">
+                More than anything, that internship gave me a taste of what applied AI looks like in a corporate setting, where innovation meets regulation, and every technical idea has to balance precision with accountability. 
+                It was a huge learning curve, but one that left me excited about the intersection of data systems, cloud engineering, and generative intelligence. 
+                It also helped shape my interest in building scalable, explainable AI solutions, not just models that work, but ones that can actually be trusted.
+            </p>
         </div>
     },
     ];
@@ -480,6 +546,7 @@ function Portfolio(){
                     ))}
                 </BentoGrid> 
             </div>
+            <ProgressiveBlur position='bottom' height='5%'/>
         </ScrollArea>
     </div>
     )
@@ -490,7 +557,7 @@ function Portfolio(){
 function Links(){
     return(
         <div className="h-full flex items-center justify-center">
-            <div className="h-full w-full rounded-md">
+            <ScrollArea className="h-full w-full rounded-md">
                 <div className="relative isolate py-8 m-15 lg:px-8">
                     <div className="title text-center">
                         <h1 className="text-9xl font-[Hedvig Sans]">that's all folks!</h1>
@@ -767,7 +834,7 @@ function Links(){
                         </Button>
                     </motion.button>
                 </div>
-            </div>
+            </ScrollArea>
         </div>
     )
 }
