@@ -401,7 +401,7 @@ function Portfolio(){
               maintainable Python code across multiple domains.
             </p>
             <LinkPill 
-                href="https://www.udemy.com/certificate/UC-100DAYS12345/"
+                href="https://www.udemy.com/certificate/UC-9251ef7c-e298-4167-9d7b-1e51a540e14b/"
                 icon={ <IconLink /> }
             >
                 View Certificate
@@ -419,7 +419,7 @@ function Portfolio(){
               beyond traditional static or React-based sites.
             </p>
             <LinkPill 
-                href="https://www.udemy.com/certificate/UC-100DAYS12345/"
+                href="https://www.udemy.com/certificate/UC-0a300b99-f166-4904-9dcf-18633bdab7ad/"
                 icon={ <IconLink /> }
             >
                 View Certificate
@@ -436,7 +436,7 @@ function Portfolio(){
               architecting production-ready cloud solutions that align with AWS best practices.
             </p>
             <LinkPill 
-                href="https://www.udemy.com/certificate/UC-100DAYS12345/"
+                href="https://www.udemy.com/course/aws-certified-solutions-architect-associate-saa-c03/"
                 icon={ <IconLink /> }
             >
                 View Course
