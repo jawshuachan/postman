@@ -178,7 +178,7 @@ function Portfolio(){
         {/* CAB202 */}
         <div className="space-y-4">
         <p><strong>CAB202 Microprocessors and Digital Systems — Simon Says Game</strong>.</p>
-        <img src="/assets/content_uni_202.png" className="rounded-md" />
+        <ImageWithSkeleton src="/assets/content_uni_202.png" alt="QUTy board used" className="rounded-md" />
         <p className="text-justify">
             A bare-metal, C-based, memory-sequence game for the QUTy board with LED/BTN I/O,
             debounced inputs, pseudo-random sequence generation, non-blocking timers, and a finite-state machine for idle →
@@ -200,7 +200,7 @@ function Portfolio(){
         {/* IFB201 */}
         <div className="space-y-4">
         <p><strong>IFB201 Introduction to Enterprise Systems — Salesforce Recruitment Automation</strong></p>
-        <img src="/assets/content_uni_i201.png" className="rounded-md" />
+        <ImageWithSkeleton src="/assets/content_uni_i201.png" alt="Dashboard view" className="rounded-md" />
         <p className="text-justify">
             Implemented a hiring pipeline for AW Computing using Salesforce:
             custom objects/fields for candidates and roles, validation rules, screen/record-triggered Flows for stage transitions,
@@ -212,7 +212,7 @@ function Portfolio(){
         {/* CAB301 */}
         <div className="space-y-4">
         <p><strong>CAB301 Algorithms and Complexity — Algorithms</strong></p>
-        <img src="/assets/content_uni_301.png" className="rounded-md" />
+        <ImageWithSkeleton src="/assets/content_uni_301.png" alt="Star sequence algorithm " className="rounded-md" />
         <p className="text-justify">
             A transportation-network console app using C#: load/save graph data, add/remove roads with
             connectivity checks, detect connectedness, find shortest paths between suburbs (Dijkstra), and compute a minimum
@@ -234,7 +234,7 @@ function Portfolio(){
         {/* MXB261 */}
         <div className="space-y-4">
         <p><strong>MXB261 Modelling and Simulation Science - Epidemic Simulation Research</strong></p>
-        <img src="/assets/content_uni_261.png" className="rounded-md" />
+        <ImageWithSkeleton src="/assets/content_uni_261.png" alt="Research paper cover page" className="rounded-md" />
         <p className="text-justify"> 
             This project explored mathematical modelling techniques for simulating the spread of infectious diseases. 
             Using Python and R, we implemented compartmental models such as SIR and SEIR to study how changes in transmission 
@@ -278,7 +278,7 @@ function Portfolio(){
         content: 
         <div>
             <div>
-                <img src="/assets/content_vira_header.png" className="rounded-md" />
+                <ImageWithSkeleton src="/assets/content_vira_header.png" alt="user testing day image" className="rounded-md" />
             </div>
             <p className="py-5 text-justify">
                 VIRA (Virtual Immersion Risk Assessment) is my capstone project, a two semester-long collaboration with 
@@ -287,7 +287,7 @@ function Portfolio(){
                 immersive, scenario-based learning.
             </p>
 
-            <img src="/assets/content_vira_designs.png" className="rounded-md w-full" />
+            <ImageWithSkeleton src="/assets/content_vira_designs.png" alt="Figma preview" className="rounded-md w-full" />
             <p className="py-5 text-justify">
                 Our Phase 1 prototype focused on UX design, interaction flow, and scenario logic across a distinct 
                 a suburban home environment while Phase 2 was pure development. I contributed to the UI/UX design 
@@ -316,7 +316,7 @@ function Portfolio(){
                 flow was both validating and eye-opening.
             </p>
             <div className="pt-5">
-                <img src="/assets/content_vira_end.png" className="rounded-md" />
+                <ImageWithSkeleton src="/assets/content_vira_end.png" alt="Thank you gifts for attending VIRA user testing day" className="rounded-md" />
             </div>
             
             <p className="py-5 text-justify">
@@ -331,13 +331,13 @@ function Portfolio(){
         image: "/assets/header_housewarming.jpg",
         content: 
         <div>
-            <img src="/assets/content_manning_lead.png" className="rounded-md"/>
+            <ImageWithSkeleton src="/assets/content_manning_lead.png" alt="rsvp site landing page" className="rounded-md"/>
             <p className="py-5 text-justify">
                 7 Manning’s RSVP was a personal web project I built with my roommates, Rex and Jude to streamline invitations and guest responses for our housewarming! 
                 It was a lightweight React application deployed via GitHub Pages, with a Firebase Database handling live reservation updates and authentication.
             </p>
 
-            <img src="/assets/content_manning_content.png" className="rounded-md"/>
+            <ImageWithSkeleton src="/assets/content_manning_content.png" alt="reservation form" className="rounded-md"/>
             <p className="py-5 text-justify">
                 We made sure that the UI was really simple for anyone to understand.
                 People who wanted to RSVP could provide their name, a gift they'd like to give :P and a final confirmation since we needed a headcount for such a small place and food.
@@ -360,7 +360,7 @@ function Portfolio(){
             <p className="py-5 text-justify">
                 And here's us planning out some stuff together at our old place. We will miss you 7 Manning 💔.
             </p>
-            <img src="/assets/content_manning_pic.png" className="rounded-lg" />
+            <ImageWithSkeleton src="/assets/content_manning_pic.png" alt="Rex coding" className="rounded-lg" />
         </div>
     },
     {
@@ -370,11 +370,11 @@ function Portfolio(){
         image: "/assets/header_aws.png",
         content: 
         <div>
-            <img src="/assets/content_monogrid_lead.png" className="rounded-md"/>
+            <ImageWithSkeleton src="/assets/content_monogrid_lead.png" alt="monogrid landing page" className="rounded-md"/>
             <p className="py-5 text-justify" >
                 Monogrid is a Cloud Computing project for one of my university’s units which I wanted to highlight since I had major takeaways and a really good learning experience.
             </p>
-            <img src="/assets/content_monogrid_diagram.png" className="rounded-md"/>
+            <ImageWithSkeleton src="/assets/content_monogrid_diagram.png" alt="monogrid architecture diagram" className="rounded-md"/>
             <p className="py-5 text-justify">
                 This video transcoding project was hosted on an EC2 instance fronted by a CloudFront CDN where transcode jobs on ECS can be scaled horizontally based on the SQS (Simple Queue System) depth. 
                 The AWS environment provided also allowed me to explore various database and data storage options like RDS (PostgreSQL), DynamoDB, Elasticache and S3 objects store. 
