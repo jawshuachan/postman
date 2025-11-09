@@ -8,6 +8,7 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog"
 import { ScrollArea } from "@/components/ui/scroll-area"
+import { ImageWithSkeleton } from "../image-skeleton";
 
 export const BentoGrid = ({
   className,
@@ -58,7 +59,7 @@ export const BentoGridItem = ({
           <div>
             {/* Background Image */}
             {image && (
-              <img 
+              <ImageWithSkeleton 
                 src={image} 
                 alt="" 
                 className="absolute inset-0 h-full w-full object-cover z-0" 
@@ -113,7 +114,7 @@ export const BentoGridItem = ({
         <div>
           {/* Background Image for small variant */}
           {image && (
-            <img 
+            <ImageWithSkeleton 
               src={image} 
               alt="" 
               className="absolute inset-0 h-full w-full object-cover z-0" 

@@ -2,6 +2,7 @@ import { useState, useCallback } from 'react'
 import { motion } from 'framer-motion'
 import { Button } from './ui/button';
 import { toast } from "sonner"
+import { ImageWithSkeleton } from './image-skeleton';
 import { ScrollArea } from "@/components/ui/scroll-area"
 import { BaseNode, ContentNode } from '@/components/base-node'
 import { BentoGrid, BentoGridItem } from "@/components/ui/bento-grid";
@@ -154,7 +155,7 @@ function Portfolio(){
         {/* CAB201 */}
         <div className="space-y-4">
         <p><strong>CAB201 Programming Principles — Object-Oriented CLI Detection System</strong></p>
-        <img src="/assets/content_uni_201.png" className="rounded-md" />
+        <ImageWithSkeleton src="/assets/content_uni_201.png" alt="project CLI view" className="rounded-md" />
         <p className="text-justify">
             A C++, command-driven console app that models an
             obstacle-aware “Threat-o-tron 9000” grid: users add guards, fences, sensors, and cameras; render text maps; query safe
@@ -176,7 +177,7 @@ function Portfolio(){
     
         {/* CAB202 */}
         <div className="space-y-4">
-        <p><strong>CAB202 Microprocessors and Digital Systems — Simon Says Game(C)</strong>.</p>
+        <p><strong>CAB202 Microprocessors and Digital Systems — Simon Says Game</strong>.</p>
         <img src="/assets/content_uni_202.png" className="rounded-md" />
         <p className="text-justify">
             A bare-metal, C-based, memory-sequence game for the QUTy board with LED/BTN I/O,
@@ -213,7 +214,7 @@ function Portfolio(){
         <p><strong>CAB301 Algorithms and Complexity — Algorithms</strong></p>
         <img src="/assets/content_uni_301.png" className="rounded-md" />
         <p className="text-justify">
-            . A transportation-network console app using C#: load/save graph data, add/remove roads with
+            A transportation-network console app using C#: load/save graph data, add/remove roads with
             connectivity checks, detect connectedness, find shortest paths between suburbs (Dijkstra), and compute a minimum
             backbone network (MST). Emphasis on asymptotic efficiency, correctness, and clean separation of data model vs. menu UI.
         </p>
