@@ -809,18 +809,6 @@ function Links(){
                             </a>
                         </Button>
                     </motion.button>
-                    
-                    <motion.button
-                    whileHover={{ scale: 1.1 }}
-                    whileTap={{ scale: 0.95 }}
-                    transition={{ type: "spring", stiffness: 300, damping: 15 }}
-                    >
-                        <Button variant="ghost" className="p-8 m-2 rounded-2xl border" asChild>
-                            <a href="https://www.x.com/jawshuachan/" target="_blank">
-                                <IconBrandX className="size-10" />
-                            </a>
-                        </Button>
-                    </motion.button>
 
                     <motion.button
                     whileHover={{ scale: 1.1 }}
