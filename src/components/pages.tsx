@@ -29,7 +29,7 @@ function Home(){
                 <h1 className="text-9xl font-[Hedvig Sans]">postman.</h1>
             </div>
             <div className="subtitle text-center p-20">
-                <h3 className="text-2xl">informing you of <em>all</em> things Joshua Chan</h3>
+                <h3 className="text-2xl">here to deliver <em>all</em> things Joshua Chan</h3>
             </div>
         </div>
     )
@@ -560,7 +560,7 @@ function Links(){
             <ScrollArea className="h-full w-full rounded-md">
                 <div className="relative isolate py-8 m-15 lg:px-8">
                     <div className="title text-center">
-                        <h1 className="text-9xl font-[Hedvig Sans]">that's all folks!</h1>
+                        <h1 className="text-8xl font-[Hedvig Sans]">signing off...</h1>
                     </div>
                 </div>
                 <div className="m-10">
