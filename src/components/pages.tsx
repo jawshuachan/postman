@@ -11,7 +11,7 @@ import { BentoGrid, BentoGridItem } from "@/components/ui/bento-grid";
 import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip"
 import { Drawer, DrawerClose, DrawerContent, DrawerDescription, DrawerFooter, DrawerHeader, DrawerTitle, DrawerTrigger, } from "@/components/ui/drawer"
 import { ReactFlow, ReactFlowProvider, type Node, type Edge, applyEdgeChanges, applyNodeChanges, Background, Controls, MiniMap, type ReactFlowInstance } from '@xyflow/react';
-import { IconBrandLinkedin, IconBrandGithub, IconBrandWhatsapp, IconMail, IconBrandInstagram, IconBrandX, IconCopy, IconBrandFacebook, IconLink } from '@tabler/icons-react'
+import { IconBrandLinkedin, IconBrandGithub, IconBrandWhatsapp, IconMail, IconBrandInstagram, IconCopy, IconBrandFacebook, IconLink } from '@tabler/icons-react'
 import { CircleFlag } from "react-circle-flags";
 import { PiMicrosoftOutlookLogoFill } from "react-icons/pi";
 import { SiGmail } from "react-icons/si";
