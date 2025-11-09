@@ -25,7 +25,7 @@ function App({children}: {children? : React.ReactNode}) {
   }
 
   return (
-    <ThemeProvider defaultTheme="light" storageKey="vite-ui-theme">
+    <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
       <div className="h-screen flex flex-col overflow-hidden">
         <Toaster />
         <NavigationBar currentView={view} onChangeView={setView} />
