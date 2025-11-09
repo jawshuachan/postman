@@ -1,31 +1,17 @@
-import { ReactFlow, ReactFlowProvider, type Node, type Edge, applyEdgeChanges, applyNodeChanges, Background, Controls, MiniMap } from '@xyflow/react';
 import { useState, useCallback } from 'react'
+import { motion } from 'framer-motion'
+import { Button } from './ui/button';
+import { toast } from "sonner"
 import { ScrollArea } from "@/components/ui/scroll-area"
 import { BaseNode, ContentNode } from '@/components/base-node'
 import { BentoGrid, BentoGridItem } from "@/components/ui/bento-grid";
-import {
-    Drawer,
-    DrawerClose,
-    DrawerContent,
-    DrawerDescription,
-    DrawerFooter,
-    DrawerHeader,
-    DrawerTitle,
-    DrawerTrigger,
-  } from "@/components/ui/drawer"
-import {
-    Tooltip,
-    TooltipContent,
-    TooltipTrigger,
-} from "@/components/ui/tooltip"
-import { Button } from './ui/button';
-import { motion } from 'framer-motion'
+import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip"
+import { Drawer, DrawerClose, DrawerContent, DrawerDescription, DrawerFooter, DrawerHeader, DrawerTitle, DrawerTrigger, } from "@/components/ui/drawer"
+import { ReactFlow, ReactFlowProvider, type Node, type Edge, applyEdgeChanges, applyNodeChanges, Background, Controls, MiniMap } from '@xyflow/react';
 import { IconBrandLinkedin, IconBrandGithub, IconBrandWhatsapp, IconMail, IconBrandInstagram, IconBrandX, IconCopy, IconBrandFacebook, IconLink } from '@tabler/icons-react'
 import { CircleFlag } from "react-circle-flags";
 import { PiMicrosoftOutlookLogoFill } from "react-icons/pi";
 import { SiGmail } from "react-icons/si";
-import { toast } from "sonner"
-
 import '@xyflow/react/dist/style.css';
 
 //--------------------------------------------------------------- home ---------------------------------------------------------------
@@ -160,11 +146,130 @@ function Stack(){
 
 function Portfolio(){
     const items = [
-    {
-        title: "University Projects",
-        image: "/assets/header_cab202.png",
-        content: 
-        <div>Coming Soon!</div>
+{
+    title: "University Projects",
+    image: "/assets/header_cab202.png",
+    content: 
+    <div className="space-y-10">
+        {/* CAB201 */}
+        <div className="space-y-4">
+        <p><strong>CAB201 Programming Principles — Object-Oriented CLI Detection System</strong></p>
+        <img src="/assets/content_uni_201.png" className="rounded-md" />
+        <p className="text-justify">
+            A C++, command-driven console app that models an
+            obstacle-aware “Threat-o-tron 9000” grid: users add guards, fences, sensors, and cameras; render text maps; query safe
+            directions; and compute obstacle-free paths. Features strict command parsing/validation, clean OO design, and
+            testable modules for map, entities, and pathfinding.
+        </p>
+        <div className="description p-2 px-10 mx-4 rounded-3xl text-md border bg-card inline-flex items-center">
+            <IconBrandGithub />
+            <a
+            className="px-2 hover:underline"
+            href="https://github.com/jawshuachan/CAB201_Obstacle_Avoidance_System"
+            target="_blank"
+            rel="noopener noreferrer"
+            >
+            View on GitHub
+            </a>
+        </div>
+        </div>
+    
+        {/* CAB202 */}
+        <div className="space-y-4">
+        <p><strong>CAB202 Microprocessors and Digital Systems — Simon Says Game(C)</strong>.</p>
+        <img src="/assets/content_uni_202.png" className="rounded-md" />
+        <p className="text-justify">
+            A bare-metal, C-based, memory-sequence game for the QUTy board with LED/BTN I/O,
+            debounced inputs, pseudo-random sequence generation, non-blocking timers, and a finite-state machine for idle →
+            playback → capture → verify → score. Tuned delays and feedback make it playable and robust on real hardware.
+        </p>
+        <div className="description p-2 px-10 mx-4 rounded-3xl text-md border bg-card inline-flex items-center">
+            <IconBrandGithub />
+            <a
+            className="px-2 hover:underline"
+            href="https://github.com/jawshuachan/CAB202_Simon_Says"
+            target="_blank"
+            rel="noopener noreferrer"
+            >
+            View on GitHub
+            </a>
+        </div>
+        </div>
+    
+        {/* IFB201 */}
+        <div className="space-y-4">
+        <p><strong>IFB201 Introduction to Enterprise Systems — Salesforce Recruitment Automation</strong></p>
+        <img src="/assets/content_uni_i201.png" className="rounded-md" />
+        <p className="text-justify">
+            Implemented a hiring pipeline for AW Computing using Salesforce:
+            custom objects/fields for candidates and roles, validation rules, screen/record-triggered Flows for stage transitions,
+            automated notifications/approvals, and dashboards for recruiter throughput and time-to-hire. Focused on clean data
+            design and low-code automation.
+        </p>
+        </div>
+    
+        {/* CAB301 */}
+        <div className="space-y-4">
+        <p><strong>CAB301 Algorithms and Complexity — Algorithms</strong></p>
+        <img src="/assets/content_uni_301.png" className="rounded-md" />
+        <p className="text-justify">
+            . A transportation-network console app using C#: load/save graph data, add/remove roads with
+            connectivity checks, detect connectedness, find shortest paths between suburbs (Dijkstra), and compute a minimum
+            backbone network (MST). Emphasis on asymptotic efficiency, correctness, and clean separation of data model vs. menu UI.
+        </p>
+        <div className="description p-2 px-10 mx-4 rounded-3xl text-md border bg-card inline-flex items-center">
+            <IconBrandGithub />
+            <a
+            className="px-2 hover:underline"
+            href="https://github.com/jawshuachan/CAB301-Algorithms-and-Complexity"
+            target="_blank"
+            rel="noopener noreferrer"
+            >
+            View on GitHub
+            </a>
+        </div>
+        </div>
+
+        {/* MXB261 */}
+        <div className="space-y-4">
+        <p><strong>MXB261 Modelling and Simulation Science - Epidemic Simulation Research</strong></p>
+        <img src="/assets/content_uni_261.png" className="rounded-md" />
+        <p className="text-justify"> 
+            This project explored mathematical modelling techniques for simulating the spread of infectious diseases. 
+            Using Python and R, we implemented compartmental models such as SIR and SEIR to study how changes in transmission 
+            rate, recovery probability, and population density influence outbreak dynamics. 
+        </p>
+
+        <div className="description p-2 px-10 mx-4 rounded-3xl text-md border bg-card inline-flex items-center">
+        <IconLink />
+        <a
+        className="px-2 hover:underline"
+        href="https://docs.google.com/document/d/1rkVwtMyElJHbScxQIu431BID562IvdWxTDpmiAuQYhs/edit?usp=sharing"
+        target="_blank"
+        rel="noopener noreferrer"
+        >
+        Research Paper
+        </a>
+        </div>
+
+        <p className="text-justify"> 
+            The simulations were visualised through interactive time-series and phase-plane plots to compare deterministic and stochastic behaviours. 
+            The work emphasised parameter sensitivity, model calibration, and critical-threshold analysis for understanding 
+            how interventions (e.g., vaccination or isolation) alter epidemic trajectories.
+        </p>
+        <div className="description p-2 px-10 mx-4 rounded-3xl text-md border bg-card inline-flex items-center">
+            <IconBrandGithub />
+            <a
+            className="px-2 hover:underline"
+            href="https://github.com/jawshuachan/MXB261"
+            target="_blank"
+            rel="noopener noreferrer"
+            >
+            View on GitHub
+            </a>
+        </div>
+        </div>
+    </div>
     },
     {
         title: "VIRA",
@@ -218,7 +323,7 @@ function Portfolio(){
                 It was so increadibly rewarding to demonstrate the prototype live to students, faculty and industry partners, receiving geniune interest in the portential
                 of VR for training and risk assessment.
             </p>
-            </div>
+        </div>
     },
     {
         title: "7 Manning's RSVP",
