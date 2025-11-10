@@ -251,7 +251,7 @@ function Portfolio(){
                 <ImageWithSkeleton src="/assets/content_uni_261.png" alt="Research paper cover page" className="rounded-md" />
                 <p className="text-justify"> 
                     This project explored mathematical modelling techniques for simulating the spread of infectious diseases. 
-                    Using Python and R, we implemented compartmental models such as SIR and SEIR to study how changes in transmission 
+                    Using MATLAB, we implemented compartmental models such as SIR and SEIR to study how changes in transmission 
                     rate, recovery probability, and population density influence outbreak dynamics. 
                 </p>
                 <LinkPill 
