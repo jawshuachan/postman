@@ -1,4 +1,4 @@
-import { useState, useCallback } from 'react'
+import { useState, useCallback, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { Button } from './ui/button';
 import { toast } from "sonner"
@@ -21,15 +21,17 @@ import '@xyflow/react/dist/style.css';
 
 function Home(){
     return(
-        <div className="relative isolate px-8 py-20 m-20 pt-14 lg:px-8">
-            <div className="subtitle flex text-left">
-                <h2 className="text-3xl">a small side project,</h2>
+        <div className="relative isolate flex flex-col items-center gap-6 px-4 py-20 text-center md:mx-auto md:max-w-5xl md:items-start md:px-8 md:py-20 lg:py-24">
+            <div className="subtitle">
+                <h2 className="text-md font-medium md:text-left md:text-2xl">a small side project,</h2>
             </div>
-            <div className="title text-center p-5">
-                <h1 className="text-9xl font-[Hedvig Sans]">postman.</h1>
+            <div className="title w-full">
+                <h1 className="text-5xl font-[Hedvig Sans] leading-tight md:text-6xl lg:text-8xl">postman.</h1>
             </div>
-            <div className="subtitle text-center p-20">
-                <h3 className="text-2xl">here to deliver <em>all</em> things Joshua Chan</h3>
+            <div className="subtitle w-full sm:py-10">
+                <h3 className="text-base leading-relaxed md:text-2xl">
+                    here to deliver <em>all</em> things Joshua Chan
+                </h3>
             </div>
         </div>
     )
@@ -151,8 +153,8 @@ function Stack(){
       };
     
     return(
-        <div className="h-full w-full border">
-            <div className="h-full w-full rounded-xl">
+        <div className="flex w-full flex-col md:h-full md:pr-11 md:py-0">
+            <div className="h-[60vh] w-full overflow-hidden rounded-xl border border-border/40 md:h-full">
                 <ReactFlowProvider>
                     <ReactFlow
                         nodes={nodes}
@@ -163,8 +165,8 @@ function Stack(){
                         onInit={handleInit}
                     >
                         <Background className="rounded-xl" />
-                        <Controls />
-                        <MiniMap />
+                        <Controls className="hidden sm:block" />
+                        <MiniMap className="hidden sm:block" />
                     </ReactFlow>
                 </ReactFlowProvider>
             </div>
@@ -175,6 +177,15 @@ function Stack(){
 //--------------------------------------------------------------- portfolio ---------------------------------------------------------------
 
 function Portfolio(){
+    const [isMdUp, setIsMdUp] = useState(false);
+    useEffect(() => {
+        if (typeof window === 'undefined') return;
+        const mediaQuery = window.matchMedia('(min-width: 768px)');
+        const handler = (event: MediaQueryListEvent) => setIsMdUp(event.matches);
+        setIsMdUp(mediaQuery.matches);
+        mediaQuery.addEventListener('change', handler);
+        return () => mediaQuery.removeEventListener('change', handler);
+    }, []);
     const items = [
     {
         title: "University Projects",
@@ -559,52 +570,62 @@ function Portfolio(){
     },
     ];
     return(
-    <div className="h-full flex items-center justify-center">
-        <ScrollArea className="h-full w-full rounded-md border">
-            <div className="p-4">
-                <BentoGrid className="max-w-4xl mx-auto">
-                    {items.map((item, i) => (
-                        <BentoGridItem
-                        key={i}
-                        title={item.title}
-                        description={item.description}
-                        image={item.image}
-                        variant={i === 3 || i === 6 ? "large" : "small"}
-                        className={i === 3 || i === 6 ? "md:col-span-2" : ""}
-                        content={item.content}
-                        />
-                    ))}
-                </BentoGrid> 
+        <div className="flex flex-col h-[65vh] md:w-[123.5vh] md:border md:rounded-lg md:px-0 md:py-0">
+            <div className="h-full max-h-full overflow-hidden rounded-xl border border-border/40 md:border-0">
+                <ScrollArea className="h-full w-full rounded-xl">
+                    <div className="p-4">
+                        <BentoGrid className="mx-auto max-w-4xl">
+                            {items.map((item, i) => (
+                            <BentoGridItem
+                            key={i}
+                            title={item.title}
+                            description={isMdUp || (i !== 3 && i !== 6) ? item.description : undefined}
+                            image={item.image}
+                            variant={isMdUp && (i === 3 || i === 6) ? "large" : "small"}
+                            className={i === 3 || i === 6 ? "md:col-span-2" : ""}
+                            content={item.content}
+                            />
+                            ))}
+                        </BentoGrid> 
+                    </div>
+                    <ProgressiveBlur position='bottom' height='5%'/>
+                </ScrollArea>
             </div>
-            <ProgressiveBlur position='bottom' height='5%'/>
-        </ScrollArea>
-    </div>
+        </div>
     )
 }
 
+
 //--------------------------------------------------------------- links ---------------------------------------------------------------
 
+
 function Links(){
+    const iconButtonClasses = "rounded-2xl border px-6 py-7 sm:px-8 sm:py-8";
+    const iconSizeClasses = "size-8 sm:size-10";
+    const contactRowClasses = "flex flex-col items-center gap-3 text-center sm:flex-row sm:gap-5 sm:text-left";
+
     return(
         <div className="h-full flex items-center justify-center">
             <ScrollArea className="h-full w-full rounded-md">
-                <div className="relative isolate py-8 m-15 lg:px-8">
+                <div className="relative isolate mx-auto max-w-5xl px-4 py-12 sm:px-8 lg:py-16">
                     <div className="title text-center">
-                        <h1 className="text-8xl font-[Hedvig Sans]">signing off...</h1>
+                        <h1 className="text-4xl font-[Hedvig Sans] sm:text-6xl lg:text-8xl">signing off...</h1>
                     </div>
                 </div>
-                <div className="m-10">
-                    <span className="description p-2 px-10 rounded-3xl text-md border bg-card">professional enquiries</span>
+                <div className="mx-auto flex max-w-3xl justify-center px-4">
+                    <span className="description rounded-3xl border bg-card px-6 py-2 text-sm sm:px-10 sm:text-base">
+                        professional enquiries
+                    </span>
                 </div>
-                <div className="m-10">
+                <div className="mx-auto flex max-w-3xl flex-wrap items-center justify-center gap-4 px-4 py-6 sm:gap-6">
                     <motion.button
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.95 }}
                     transition={{ type: "spring", stiffness: 300, damping: 15 }}
                     >
-                        <Button variant="ghost" className="p-8 m-2 rounded-2xl border" asChild>
+                        <Button variant="ghost" className={iconButtonClasses} asChild>
                             <a href="https://www.linkedin.com/in/joshua-chan-bp37/" target="_blank">
-                                <IconBrandLinkedin className="size-10" />
+                                <IconBrandLinkedin className={iconSizeClasses} />
                             </a>
                         </Button>
                     </motion.button>
@@ -614,9 +635,9 @@ function Links(){
                     whileTap={{ scale: 0.95 }}
                     transition={{ type: "spring", stiffness: 300, damping: 15 }}
                     >
-                        <Button variant="ghost" className="p-8 m-2 rounded-2xl border" asChild>
+                        <Button variant="ghost" className={iconButtonClasses} asChild>
                             <a href="https://github.com/jawshuachan" target="_blank">
-                                <IconBrandGithub className="size-10" />
+                                <IconBrandGithub className={iconSizeClasses} />
                             </a>
                         </Button>
                     </motion.button>
@@ -628,22 +649,22 @@ function Links(){
                     >
                         <Drawer>
                             <DrawerTrigger asChild>
-                                <Button variant="ghost" className="p-8 m-2 rounded-2xl border">
-                                    <IconBrandWhatsapp className="size-10" />
+                                <Button variant="ghost" className={iconButtonClasses}>
+                                    <IconBrandWhatsapp className={iconSizeClasses} />
                                 </Button> 
                             </DrawerTrigger>
                             <DrawerContent>
-                                <div className="mx-auto w-full max-w-sm pt-5">
+                                <div className="mx-auto w-full max-w-sm px-4 pt-5">
                                     <DrawerHeader>
                                         <DrawerTitle>Contact Numbers</DrawerTitle>
                                         <DrawerDescription>Please contact me for professional enquiries only.</DrawerDescription>
                                     </DrawerHeader>
                                 </div>
-                                <div className="pt-3">
-                                    <div className="flex flex-col items-center justify-center">
-                                        <div className="flex flex-row items-center justify-center pb-5 gap-5">
-                                        <span className='inline-block overflow-hidden w-5 h-5 rounded-xs'>
-                                                <CircleFlag countryCode='my' className='h-full h-full object-cover' />
+                                <div className="px-4 pb-6 pt-3">
+                                    <div className="flex flex-col items-center justify-center gap-4">
+                                        <div className={`${contactRowClasses} pb-2`}>
+                                            <span className='inline-block overflow-hidden w-5 h-5 rounded-xs'>
+                                                <CircleFlag countryCode='my' className='h-full w-full object-cover' />
                                             </span>
                                             <p>+60-12-891-8936</p>
                                             <Tooltip>
@@ -675,9 +696,9 @@ function Links(){
                                                 </TooltipContent>
                                             </Tooltip>
                                         </div>
-                                        <div className="flex flex-row items-center justify-center pb-2 gap-5">
+                                        <div className={contactRowClasses}>
                                             <span className='inline-block overflow-hidden w-5 h-5 rounded-xs'>
-                                                <CircleFlag countryCode="au" className='h-full h-full object-cover' />
+                                                <CircleFlag countryCode="au" className='h-full w-full object-cover' />
                                             </span>
                                             <p>+61-45-235-8936</p>
                                             <Tooltip>
@@ -714,15 +735,14 @@ function Links(){
                                 <DrawerFooter>
                                     <DrawerClose>
                                         <div className='pb-8'>
-                                            <Button variant="outline" className='w-80'>Close</Button>
+                                            <Button variant="outline" className='w-full max-w-xs'>Close</Button>
                                         </div>
                                     </DrawerClose>
                                 </DrawerFooter>
                             </DrawerContent>
-                            
                         </Drawer>
                     </motion.button>
-                    
+
                     <motion.button
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.95 }}
@@ -730,20 +750,20 @@ function Links(){
                     >
                         <Drawer>
                                 <DrawerTrigger asChild>
-                                    <Button variant="ghost" className="p-8 m-2 rounded-2xl border" >
-                                        <IconMail className="size-10" />
+                                    <Button variant="ghost" className={iconButtonClasses} >
+                                        <IconMail className={iconSizeClasses} />
                                     </Button>
                                 </DrawerTrigger>
                                 <DrawerContent>
-                                    <div className="mx-auto w-full max-w-sm pt-5">
+                                    <div className="mx-auto w-full max-w-sm px-4 pt-5">
                                         <DrawerHeader>
                                             <DrawerTitle>Email</DrawerTitle>
                                             <DrawerDescription>Please contact me for professional enquiries only.</DrawerDescription>
                                         </DrawerHeader>
                                     </div>
-                                    <div className="pt-3">
-                                        <div className="flex flex-col items-center justify-center">
-                                            <div className="flex flex-row items-center justify-center pb-5 gap-5">
+                                    <div className="px-4 pb-6 pt-3">
+                                        <div className="flex flex-col items-center justify-center gap-4">
+                                            <div className={`${contactRowClasses} pb-2`}>
                                                 <span className='inline-block overflow-hidden w-5 h-5 rounded-xs'>
                                                     <SiGmail />
                                                 </span>
@@ -777,7 +797,7 @@ function Links(){
                                                     </TooltipContent>
                                                 </Tooltip>
                                             </div>
-                                            <div className="flex flex-row items-center justify-center pb-2 gap-5">
+                                            <div className={contactRowClasses}>
                                                 <span className='inline-block overflow-hidden w-5 h-5 rounded-xs'>
                                                     <PiMicrosoftOutlookLogoFill />
                                                 </span>
@@ -816,26 +836,27 @@ function Links(){
                                     <DrawerFooter>
                                         <DrawerClose>
                                             <div className='pb-8'>
-                                                <Button variant="outline" className='w-80'>Close</Button>
+                                                <Button variant="outline" className='w-full max-w-xs'>Close</Button>
                                             </div>
                                         </DrawerClose>
                                     </DrawerFooter>
                                 </DrawerContent>
                             </Drawer>
                     </motion.button>
-                    
                 </div>
-                <div className="m-10">
-                    <span className="description p-2 px-10 rounded-3xl text-md border bg-card">socials</span>
+                <div className="mx-auto flex max-w-3xl justify-center px-4">
+                    <span className="description rounded-3xl border bg-card px-6 py-2 text-sm sm:px-10 sm:text-base">
+                        socials
+                    </span>
                 </div>
-                <div className="m-10">
+                <div className="mx-auto flex max-w-3xl flex-wrap items-center justify-center gap-4 px-4 py-6 sm:gap-6">
                     <motion.button
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.95 }}
                     >
-                        <Button variant="ghost" className="p-8 m-2 rounded-2xl border" asChild>
+                        <Button variant="ghost" className={iconButtonClasses} asChild>
                             <a href="https://www.instagram.com/joshuaachan/" target="_blank">
-                                <IconBrandInstagram className="size-10" />
+                                <IconBrandInstagram className={iconSizeClasses} />
                             </a>
                         </Button>
                     </motion.button>
@@ -845,9 +866,9 @@ function Links(){
                     whileTap={{ scale: 0.95 }}
                     transition={{ type: "spring", stiffness: 300, damping: 15 }}
                     >
-                        <Button variant="ghost" className="p-8 m-2 rounded-2xl border" asChild>
+                        <Button variant="ghost" className={iconButtonClasses} asChild>
                             <a href="https://www.facebook.com/37.JoshuaChan" target="_blank">
-                                <IconBrandFacebook className="size-10" />
+                                <IconBrandFacebook className={iconSizeClasses} />
                             </a>
                         </Button>
                     </motion.button>
@@ -856,6 +877,7 @@ function Links(){
         </div>
     )
 }
+
 
 export {
     Home,

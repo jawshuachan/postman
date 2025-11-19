@@ -65,27 +65,26 @@ export const BentoGridItem = ({
                 className="absolute inset-0 h-full w-full object-cover z-0" 
               />
             )}
-              
-            {/* Clip-path Overlay */}
+            {/* Mobile overlay */}
+            <div className="absolute inset-0 z-10 bg-gradient-to-br from-black/70 via-black/40 to-transparent md:hidden" />
+            {/* Desktop clip-path overlay */}
             <div 
-              className="absolute inset-0 z-10"
+              className="absolute inset-0 z-10 hidden md:block"
               style={{ 
                 clipPath: "polygon(0 0, 30% 0, 100% 80%, 100% 100%, 0 100%)",
                 background: "var(--card)"
               }} 
-            >
-              
+            />
             {/* Content */}
-            <div className="transition duration-200 group-hover/bento:translate-x-2 relative z-20 px-10 pt-8 my-5 md:pt-12 text-left max-w-[60%]">
+            <div className="transition duration-200 group-hover/bento:translate-x-2 relative z-20 max-w-full px-6 pt-8 text-left text-white md:my-5 md:max-w-[60%] md:px-10 md:pt-12 md:text-neutral-900 dark:text-white dark:md:text-neutral-100">
               {header}
               {icon}
-              <div className="mt-2 subtitle text-3xl md:text-4xl text-neutral-900 dark:text-neutral-100">
+              <div className="mt-2 subtitle text-3xl md:text-4xl">
                 {title}
               </div>
-              <div className="mt-3 text-sm md:text-base text-neutral-800 dark:text-neutral-200">
+              <div className="mt-3 text-sm md:text-base text-neutral-200 md:text-neutral-800 dark:text-neutral-200">
                 {description}
               </div>
-            </div>
             </div>
           </div>
         </DialogTrigger>

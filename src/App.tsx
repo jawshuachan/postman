@@ -26,12 +26,11 @@ function App({children}: {children? : React.ReactNode}) {
 
   return (
     <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
-      <div className="h-screen flex flex-col overflow-hidden">
+      <div className="flex min-h-screen flex-col overflow-hidden md:h-screen">
         <Toaster />
         <NavigationBar currentView={view} onChangeView={setView} />
-        <main className='flex-1 min-h-0'>
-          
-          <div className="m-5 h-full">
+        <main className='flex-1 min-h-0 px-4 py-4 md:px-0 flex flex-col'>
+          <div className="flex-1 w-full rounded-xl bg-background/60 md:m-5 md:bg-transparent md:p-0 md:shadow-none">
             { children }
             <AnimatePresence mode='wait'>
               <motion.div
