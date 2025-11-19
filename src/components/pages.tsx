@@ -492,6 +492,36 @@ function Portfolio(){
               It introduced me to RESTful endpoint design, HTTP methods, and the power of visual feedback in habit formation.
             </p>
           </div>
+          {/* Monkey Tracker */}
+          <div className="space-y-4">
+            <p><strong>Monkey Tracker</strong></p>
+            <p className="text-justify">
+              An image based classification web app that detects and identifies different 'monkey poses' in real time using a lightweight TensorFlow.js model. Built
+              with a focus on speed and usability, the app captures images through the user's webcam, processing them through a custom trained pose recognition 
+              pipeline, and returns the most likely monkey pose with high accuracy.
+            </p>
+            <LinkPill 
+                href="https://github.com/jawshuachan/monkey-tracker"
+                icon={ <IconBrandGithub /> }
+            >
+                View on GitHub
+            </LinkPill>
+          </div>
+          {/* Recnet */}
+          <div className="space-y-4">
+            <p><strong>Recnet</strong></p>
+            <p className="text-justify">
+              This is an ongoing Angular project where I'm basically using the app as an excuse to level up my Angular skills and experiment with Neo4j as a graph database. 
+              The idea is to build a modern and clean frontend while learning how to model relationships and queries in a way that actually takes advantage of graph structures.
+              It's still in its early days, flushing out the appropriate features for the ideal user but its showing some fun potential as a sandbox to test out new technologies.
+            </p>
+            <LinkPill 
+                href="https://github.com/jawshuachan/recnet"
+                icon={ <IconBrandGithub /> }
+            >
+                View on GitHub
+            </LinkPill>
+          </div>
         </div>
     },
     {
