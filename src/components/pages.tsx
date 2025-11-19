@@ -570,28 +570,29 @@ function Portfolio(){
     },
     ];
     return(
-        <div className="flex flex-col h-[65vh] md:w-[123.5vh] md:border md:rounded-lg md:px-0 md:py-0">
-            <div className="h-full max-h-full overflow-hidden rounded-xl border border-border/40 md:border-0">
-                <ScrollArea className="h-full w-full rounded-xl">
-                    <div className="p-4">
-                        <BentoGrid className="mx-auto max-w-4xl">
-                            {items.map((item, i) => (
-                            <BentoGridItem
-                            key={i}
-                            title={item.title}
-                            description={isMdUp || (i !== 3 && i !== 6) ? item.description : undefined}
-                            image={item.image}
-                            variant={isMdUp && (i === 3 || i === 6) ? "large" : "small"}
-                            className={i === 3 || i === 6 ? "md:col-span-2" : ""}
-                            content={item.content}
-                            />
-                            ))}
-                        </BentoGrid> 
-                    </div>
-                    <ProgressiveBlur position='bottom' height='5%'/>
-                </ScrollArea>
+            <div className="flex w-full flex-col h-[65vh] md:pr-11 md:py-0">
+                <div className="h-full w-full overflow-hidden rounded-xl border border-border/40 md:h-full">
+                    <ScrollArea className="h-full w-full rounded-xl">
+                        <div className="p-4">
+                            <BentoGrid className="mx-auto p-1">
+                                {items.map((item, i) => (
+                                <BentoGridItem
+                                key={i}
+                                title={item.title}
+                                description={isMdUp || (i !== 3 && i !== 6) ? item.description : undefined}
+                                image={item.image}
+                                variant={isMdUp && (i === 3 || i === 6) ? "large" : "small"}
+                                className={i === 3 || i === 6 ? "md:col-span-2" : ""}
+                                content={item.content}
+                                />
+                                ))}
+                            </BentoGrid> 
+                        </div>
+                        <ProgressiveBlur position='bottom' height='5%'/>
+                    </ScrollArea>
+                </div>
             </div>
-        </div>
+
     )
 }
 
