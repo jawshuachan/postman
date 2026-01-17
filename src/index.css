@@ -89,6 +89,49 @@
   background: oklch(0.7559 0.2122 55.05 / 30%)
 }
 
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes marquee-reverse {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.marquee {
+  animation: marquee 26s linear infinite;
+}
+
+.marquee-reverse {
+  animation: marquee-reverse 28s linear infinite;
+}
+
+.group:hover .marquee,
+.group:hover .marquee-reverse {
+  animation-play-state: paused;
+}
+
+.marquee-fade {
+  mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee,
+  .marquee-reverse {
+    animation: none;
+  }
+}
+
 .dark {
   --background: oklch(0.3012 0 0);
   --foreground: oklch(0.9531 0.0173 99.6);
@@ -136,8 +179,12 @@
   * {
     @apply border-border outline-ring/50;
   }
+  html,
   body {
-    @apply bg-background text-foreground;
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-background text-foreground overflow-x-hidden;
   }
 }
 

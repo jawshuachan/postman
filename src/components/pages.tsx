@@ -5,9 +5,9 @@ import { toast } from "sonner"
 import { ImageWithSkeleton } from './image-skeleton';
 import LinkPill from './link-pill'
 import { ScrollArea } from "@/components/ui/scroll-area"
-import { ProgressiveBlur } from './ui/progressive-blur';
 import { BaseNode, ContentNode } from '@/components/base-node'
 import { BentoGrid, BentoGridItem } from "@/components/ui/bento-grid";
+import TechStackShowcase from './tech-stack'
 import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip"
 import { Drawer, DrawerClose, DrawerContent, DrawerDescription, DrawerFooter, DrawerHeader, DrawerTitle, DrawerTrigger, } from "@/components/ui/drawer"
 import { ReactFlow, ReactFlowProvider, type Node, type Edge, applyEdgeChanges, applyNodeChanges, Background, Controls, MiniMap, type ReactFlowInstance } from '@xyflow/react';
@@ -21,7 +21,7 @@ import '@xyflow/react/dist/style.css';
 
 function Home(){
     return(
-        <div className="relative isolate flex flex-col items-center gap-6 px-4 py-20 text-center md:mx-auto md:max-w-5xl md:items-start md:px-8 md:py-20 lg:py-24">
+        <div className="relative isolate flex flex-col items-center gap-6 px-4 py-20 text-center md:mx-auto md:max-w-5xl md:items-center md:px-8 md:py-20 lg:py-24">
             <div className="subtitle">
                 <h2 className="text-md font-medium md:text-left md:text-2xl">a small side project,</h2>
             </div>
@@ -115,6 +115,7 @@ const initialNodes: Node[] = [
   ];
 
 function Stack(){
+    const [isMapOpen, setIsMapOpen] = useState(false);
     const [nodes, setNodes] = useState<Node[]>(initialNodes);
     const [edges, setEdges] = useState<Edge[]>(initialEdges);
     const onNodesChange = useCallback(
@@ -153,23 +154,41 @@ function Stack(){
       };
     
     return(
-        <div className="flex w-full flex-col md:h-full md:pr-11 md:py-0">
-            <div className="h-[60vh] w-full overflow-hidden rounded-xl border border-border/40 md:h-full">
-                <ReactFlowProvider>
-                    <ReactFlow
-                        nodes={nodes}
-                        edges={edges}
-                        onNodesChange={onNodesChange}
-                        onEdgesChange={onEdgesChange}
-                        nodeTypes={nodeTypes}
-                        onInit={handleInit}
-                    >
-                        <Background className="rounded-xl" />
-                        <Controls className="hidden sm:block" />
-                        <MiniMap className="hidden sm:block" />
-                    </ReactFlow>
-                </ReactFlowProvider>
-            </div>
+        <div className="flex w-full flex-col gap-10">
+            <TechStackShowcase onExplore={() => setIsMapOpen(true)} />
+            <Drawer open={isMapOpen} onOpenChange={setIsMapOpen} handleOnly>
+                <DrawerContent className="mx-auto w-full max-w-6xl">
+                    <DrawerHeader className="text-left">
+                        <DrawerTitle>The Knowledge Tree</DrawerTitle>
+                        <DrawerDescription>
+                            An interactive view of tools and relationships across my stack.
+                        </DrawerDescription>
+                    </DrawerHeader>
+                    <div className="px-4 pb-6 md:px-6">
+                        <div className="h-[70vh] w-full overflow-hidden rounded-xl border border-border/40 md:h-[75vh]">
+                            <ReactFlowProvider>
+                                <ReactFlow
+                                    nodes={nodes}
+                                    edges={edges}
+                                    onNodesChange={onNodesChange}
+                                    onEdgesChange={onEdgesChange}
+                                    nodeTypes={nodeTypes}
+                                    onInit={handleInit}
+                                >
+                                    <Background className="rounded-xl" />
+                                    <Controls className="hidden sm:block" />
+                                    <MiniMap className="hidden sm:block" />
+                                </ReactFlow>
+                            </ReactFlowProvider>
+                        </div>
+                    </div>
+                    <DrawerFooter>
+                        <DrawerClose asChild>
+                            <Button variant="outline">Close</Button>
+                        </DrawerClose>
+                    </DrawerFooter>
+                </DrawerContent>
+            </Drawer>
         </div>
     )
 }
@@ -187,6 +206,55 @@ function Portfolio(){
         return () => mediaQuery.removeEventListener('change', handler);
     }, []);
     const items = [
+    {
+        title: "Word Chain",
+        image: "/assets/header_cab202.png",
+        content: ""
+    },
+    {
+        title: "RecNet",
+        image: "/assets/header_recnet.png",
+        content: ""
+    },
+    {
+        title: "Email Buddy",
+        image: "/assets/header_cab202.png",
+        content: ""
+    },
+    {
+        title: "Monogrid",
+        description:
+        "a cloud based video transcoding app hosted and powered by AWS services",
+        image: "/assets/header_aws.png",
+        content: 
+        <div>
+            <ImageWithSkeleton src="/assets/content_monogrid_lead.png" alt="monogrid landing page" className="rounded-md"/>
+            <p className="py-5 text-justify" >
+                Monogrid is a Cloud Computing project for one of my university’s units which I wanted to highlight since I had major takeaways and a really good learning experience.
+            </p>
+            <ImageWithSkeleton src="/assets/content_monogrid_diagram.png" alt="monogrid architecture diagram" className="rounded-md"/>
+            <p className="py-5 text-justify">
+                This video transcoding project was hosted on an EC2 instance fronted by a CloudFront CDN where transcode jobs on ECS can be scaled horizontally based on the SQS (Simple Queue System) depth. 
+                The AWS environment provided also allowed me to explore various database and data storage options like RDS (PostgreSQL), DynamoDB, Elasticache and S3 objects store. 
+                The app's domain is right here.
+            </p>  
+            <LinkPill 
+                href="https://start.monogrid.cab432.com"
+                icon={ <IconLink /> }
+            >
+                start.monogrid.cab432.com
+            </LinkPill>
+            <p className="pt-5 text-justify"> 
+                While I would really like for you to try this website out for yourself, I am pretty sure my university would have pruned the domain registry by the time you are reading this. 
+                If you do have a chance to try it out, I hope you enjoy navigating the app. 
+                This project's code is also available on my GitHub account if you would still like to take a peek.
+            </p>
+            <p className="py-5 text-justify">
+                I found that this hands on learning experience had a profound effect on myself, since I was able to actually interact with these cloud services to compartmentalise and optimise features to be production ready (i.e. scalable and accessible). 
+                Moving forward I want to expand on this domain of expertise more, hopefully becoming a Solutions Architect in the future.
+            </p>
+        </div>
+    },
     {
         title: "University Projects",
         image: "/assets/header_cab202.png",
@@ -334,6 +402,39 @@ function Portfolio(){
         </div>
     },
     {
+        title: "Experian",
+        description: "my first internship.",
+        image: "/assets/header_experian.png",
+        content: 
+        <div>
+            <ImageWithSkeleton src="/assets/content_experian_body.png" alt="Experian office space" className="rounded-md"/>
+            <p className="py-5 text-justify">
+                Experian was my very first internship, and honestly, it was where I really started to connect everything I’d been learning about data and AI. 
+                I joined as a tech intern on the IT team, where I explored how large-scale data platforms could integrate emerging generative AI systems for smarter client insights. 
+                It was my first exposure to enterprise-level architecture, and how tools like SQL databases, pipelines, and API models all come together to power decisioning platforms that affect millions of people.
+            </p>
+
+            <ImageWithSkeleton src="/assets/content_experian_stuff.png" alt="Experian AI research workspace" className="rounded-md"/>
+            <p className="pt-5 text-justify">
+                My main focus was on researching the potential of generative AI in business intelligence — how natural language models could help streamline report generation, 
+                query structured databases more intuitively, and assist non-technical users in drawing insights from complex data. 
+                I experimented with prompt design, embeddings, and text-to-SQL methods using Python prototypes while exploring how to safely align them with Experian’s compliance and privacy frameworks.
+            </p>
+            <p className="py-5 text-justify">
+                Alongside the research, I deepened my understanding of traditional data systems, learning how Experian manages massive relational databases, 
+                maintains data integrity across pipelines, and designs dashboards that scale globally. 
+                It gave me an appreciation for how both classical and modern approaches can work together: structured data foundations supporting AI-driven automation on top.
+            </p>
+
+            <ImageWithSkeleton src="/assets/content_experian_end.png" alt="Experian research group" className="rounded-md"/>
+            <p className="py-5 text-justify">
+                More than anything, that internship gave me a taste of what applied AI looks like in a corporate setting, where innovation meets regulation, and every technical idea has to balance precision with accountability. 
+                It was a huge learning curve, but one that left me excited about the intersection of data systems, cloud engineering, and generative intelligence. 
+                It also helped shape my interest in building scalable, explainable AI solutions, not just models that work, but ones that can actually be trusted.
+            </p>
+        </div>
+    },
+    {
         title: "7 Manning's RSVP",
         image: "/assets/header_housewarming.jpg",
         content: 
@@ -363,41 +464,7 @@ function Portfolio(){
         </div>
     },
     {
-        title: "Monogrid",
-        description:
-        "a cloud based video transcoding app hosted and powered by AWS services",
-        image: "/assets/header_aws.png",
-        content: 
-        <div>
-            <ImageWithSkeleton src="/assets/content_monogrid_lead.png" alt="monogrid landing page" className="rounded-md"/>
-            <p className="py-5 text-justify" >
-                Monogrid is a Cloud Computing project for one of my university’s units which I wanted to highlight since I had major takeaways and a really good learning experience.
-            </p>
-            <ImageWithSkeleton src="/assets/content_monogrid_diagram.png" alt="monogrid architecture diagram" className="rounded-md"/>
-            <p className="py-5 text-justify">
-                This video transcoding project was hosted on an EC2 instance fronted by a CloudFront CDN where transcode jobs on ECS can be scaled horizontally based on the SQS (Simple Queue System) depth. 
-                The AWS environment provided also allowed me to explore various database and data storage options like RDS (PostgreSQL), DynamoDB, Elasticache and S3 objects store. 
-                The app's domain is right here.
-            </p>  
-            <LinkPill 
-                href="https://start.monogrid.cab432.com"
-                icon={ <IconLink /> }
-            >
-                start.monogrid.cab432.com
-            </LinkPill>
-            <p className="pt-5 text-justify"> 
-                While I would really like for you to try this website out for yourself, I am pretty sure my university would have pruned the domain registry by the time you are reading this. 
-                If you do have a chance to try it out, I hope you enjoy navigating the app. 
-                This project's code is also available on my GitHub account if you would still like to take a peek.
-            </p>
-            <p className="py-5 text-justify">
-                I found that this hands on learning experience had a profound effect on myself, since I was able to actually interact with these cloud services to compartmentalise and optimise features to be production ready (i.e. scalable and accessible). 
-                Moving forward I want to expand on this domain of expertise more, hopefully becoming a Solutions Architect in the future.
-            </p>
-        </div>
-    },
-    {
-        title: "Udemy Certificates",
+        title: "Certifications",
         image: "/assets/header_udemy.png",
         content: 
         <div className="space-y-8">
@@ -535,44 +602,23 @@ function Portfolio(){
           </div>
         </div>
     },
-    {
-        title: "Experian",
-        description: "my first internship.",
-        image: "/assets/header_experian.png",
-        content: 
-        <div>
-            <ImageWithSkeleton src="/assets/content_experian_body.png" alt="Experian office space" className="rounded-md"/>
-            <p className="py-5 text-justify">
-                Experian was my very first internship, and honestly, it was where I really started to connect everything I’d been learning about data and AI. 
-                I joined as a tech intern on the IT team, where I explored how large-scale data platforms could integrate emerging generative AI systems for smarter client insights. 
-                It was my first exposure to enterprise-level architecture, and how tools like SQL databases, pipelines, and API models all come together to power decisioning platforms that affect millions of people.
-            </p>
-
-            <ImageWithSkeleton src="/assets/content_experian_stuff.png" alt="Experian AI research workspace" className="rounded-md"/>
-            <p className="pt-5 text-justify">
-                My main focus was on researching the potential of generative AI in business intelligence — how natural language models could help streamline report generation, 
-                query structured databases more intuitively, and assist non-technical users in drawing insights from complex data. 
-                I experimented with prompt design, embeddings, and text-to-SQL methods using Python prototypes while exploring how to safely align them with Experian’s compliance and privacy frameworks.
-            </p>
-            <p className="py-5 text-justify">
-                Alongside the research, I deepened my understanding of traditional data systems, learning how Experian manages massive relational databases, 
-                maintains data integrity across pipelines, and designs dashboards that scale globally. 
-                It gave me an appreciation for how both classical and modern approaches can work together: structured data foundations supporting AI-driven automation on top.
-            </p>
-
-            <ImageWithSkeleton src="/assets/content_experian_end.png" alt="Experian research group" className="rounded-md"/>
-            <p className="py-5 text-justify">
-                More than anything, that internship gave me a taste of what applied AI looks like in a corporate setting, where innovation meets regulation, and every technical idea has to balance precision with accountability. 
-                It was a huge learning curve, but one that left me excited about the intersection of data systems, cloud engineering, and generative intelligence. 
-                It also helped shape my interest in building scalable, explainable AI solutions, not just models that work, but ones that can actually be trusted.
-            </p>
-        </div>
-    },
     ];
     return(
-            <div className="flex w-full flex-col h-[65vh] md:pr-11 md:py-0">
-                <div className="h-full w-full overflow-hidden rounded-xl border border-border/40 md:h-full">
-                    <ScrollArea className="h-full w-full rounded-xl">
+            <div className="flex w-full min-h-screen flex-col md:pr-11 md:py-0">
+                <div className="relative isolate flex flex-col items-center gap-6 px-4 py-20 text-center md:mx-auto md:max-w-5xl md:items-start md:px-8 md:py-20 lg:py-24">
+                    <div className="mx-auto flex w-full max-w-5xl flex-col items-center gap-5 text-center">
+                        <p className="title text-sm lowercase tracking-[0.2em] text-muted-foreground">
+                            potfolio
+                        </p>
+                        <h2 className="subtitle text-4xl font-[Hedvig Sans] leading-tight text-foreground md:text-5xl lg:text-6xl">
+                            A Tribute to Continual Learning
+                        </h2>
+                        <p className="description max-w-2xl text-base text-muted-foreground md:text-lg">
+                            A curated collection of projects built in my personal time and through professional institutions.
+                        </p>
+                    </div>
+                </div>
+                <div className="flex-1 w-full overflow-hidden rounded-xl border border-border/40">
                         <div className="p-4">
                             <BentoGrid className="mx-auto p-1">
                                 {items.map((item, i) => (
@@ -588,8 +634,6 @@ function Portfolio(){
                                 ))}
                             </BentoGrid> 
                         </div>
-                        <ProgressiveBlur position='bottom' height='5%'/>
-                    </ScrollArea>
                 </div>
             </div>
 
@@ -604,21 +648,56 @@ function Links(){
     const iconButtonClasses = "rounded-2xl border px-6 py-7 sm:px-8 sm:py-8";
     const iconSizeClasses = "size-8 sm:size-10";
     const contactRowClasses = "flex flex-col items-center gap-3 text-center sm:flex-row sm:gap-5 sm:text-left";
+    const rotatingWords = ["create", "design", "make", "build"];
+    const [wordIndex, setWordIndex] = useState(0);
+
+    useEffect(() => {
+        const intervalId = window.setInterval(() => {
+            setWordIndex((prev) => (prev + 1) % rotatingWords.length);
+        }, 1800);
+        return () => window.clearInterval(intervalId);
+    }, [rotatingWords.length]);
 
     return(
-        <div className="h-full flex items-center justify-center">
+        <div className="flex h-full items-center justify-center">
             <ScrollArea className="h-full w-full rounded-md">
-                <div className="relative isolate mx-auto max-w-5xl px-4 py-12 sm:px-8 lg:py-16">
-                    <div className="title text-center">
-                        <h1 className="text-4xl font-[Hedvig Sans] sm:text-6xl lg:text-8xl">signing off...</h1>
+                <div className="pt-10 sm:pt-12">
+                    <div className="relative isolate mx-auto max-w-5xl px-4 py-6 sm:px-8 lg:py-8">
+                        <div className="text-center">
+                            <h1 className="title text-4xl font-[Hedvig Sans] sm:text-6xl lg:text-8xl pb-8">signing off,</h1>
+                            <div className="subtitle text-2xl text-left">
+                                <p>
+                                    Let&rsquo;s{" "}
+                                    <motion.span
+                                    key={rotatingWords[wordIndex]}
+                                    initial={{ y: 12, opacity: 0 }}
+                                    animate={{ y: 0, opacity: 1 }}
+                                    exit={{ y: -12, opacity: 0 }}
+                                    transition={{ duration: 0.3 }}
+                                    className="inline-block"
+                                    >
+                                        {rotatingWords[wordIndex]}
+                                    </motion.span>
+                                </p>
+                                <p>incredible work together.</p>
+                            </div>
+                            <div className="description text-center">
+                                <img src="/assets/Signature.png" className="mx-auto w-1/2 dark:invert" alt="Signature" />
+                                <p className='text-lg text-right'>Joshua Chan</p>
+                                <div className='text-sm text-right text-muted-foreground'>
+                                    <p>Full Stack Engineer +</p>
+                                    <p>Solutions Architecture</p>
+                                </div>
+                                
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <div className="mx-auto flex max-w-3xl justify-center px-4">
-                    <span className="description rounded-3xl border bg-card px-6 py-2 text-sm sm:px-10 sm:text-base">
-                        professional enquiries
-                    </span>
-                </div>
-                <div className="mx-auto flex max-w-3xl flex-wrap items-center justify-center gap-4 px-4 py-6 sm:gap-6">
+                    <div className="mx-auto flex max-w-3xl justify-center px-4">
+                        <span className="description rounded-3xl border bg-card px-6 py-2 text-sm sm:px-10 sm:text-base">
+                            professional enquiries
+                        </span>
+                    </div>
+                    <div className="mx-auto flex max-w-3xl flex-wrap items-center justify-center gap-4 px-4 py-6 sm:gap-6">
                     <motion.button
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.95 }}
@@ -845,12 +924,12 @@ function Links(){
                             </Drawer>
                     </motion.button>
                 </div>
-                <div className="mx-auto flex max-w-3xl justify-center px-4">
-                    <span className="description rounded-3xl border bg-card px-6 py-2 text-sm sm:px-10 sm:text-base">
-                        socials
-                    </span>
-                </div>
-                <div className="mx-auto flex max-w-3xl flex-wrap items-center justify-center gap-4 px-4 py-6 sm:gap-6">
+                    <div className="mx-auto flex max-w-3xl justify-center px-4">
+                        <span className="description rounded-3xl border bg-card px-6 py-2 text-sm sm:px-10 sm:text-base">
+                            socials
+                        </span>
+                    </div>
+                    <div className="mx-auto flex max-w-3xl flex-wrap items-center justify-center gap-4 px-4 py-6 sm:gap-6">
                     <motion.button
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.95 }}
@@ -873,6 +952,7 @@ function Links(){
                             </a>
                         </Button>
                     </motion.button>
+                </div>
                 </div>
             </ScrollArea>
         </div>
