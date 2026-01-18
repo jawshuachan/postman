@@ -27,7 +27,7 @@ const tools = [
     { name: "Vercel", src: "/assets/Vercel.svg" },
     { name: "Figma", src: "/assets/Figma.svg" },
     { name: "Rive", src: "/assets/Rive.svg" },
-    { name: "n8n", src: "/assets/n8n.svg" }
+    { name: "n8n", src: "/assets/n8n.png" }
 ]
 
 type MarqueeItem = {
@@ -89,9 +89,9 @@ export default function TechStackShowcase({ onExplore }: TechStackShowcaseProps)
                 className="description group rounded-full border-border/70 bg-background/70 px-4 py-2 text-sm font-medium transition-colors"
                 onClick={onExplore}
                 >
-                    <span>Explore the knowledge tree</span>
+                    <span><p className="title hover:underline">Explore the knowledge tree</p></span>
                     
-                    <span className="ml-3 flex items-center">
+                    <span className="title ml-3 flex items-center">
                         <span className="h-px w-0 origin-left bg-current transition-all duration-300 group-hover:w-10" />
                         <span className="h-3 w-3 translate-x-[-6px] rotate-45 border-t border-r border-current transition-transform duration-300 group-hover:translate-x-0" />
                     </span>

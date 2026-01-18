@@ -57,7 +57,7 @@ export default function Links() {
                             </div>
                         </div>
                     </div>
-                    <div className="mx-auto flex max-w-3xl justify-center px-4">
+                    <div className="mx-auto flex max-w-3xl justify-center px-4 pt-8">
                         <span className="description rounded-3xl border bg-card px-6 py-2 text-sm sm:px-10 sm:text-base">
                             professional enquiries
                         </span>
