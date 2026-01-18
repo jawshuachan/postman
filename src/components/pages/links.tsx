@@ -31,7 +31,7 @@ export default function Links() {
                     <div className="relative isolate mx-auto max-w-5xl px-4 py-6 sm:px-8 lg:py-8">
                         <div className="text-center">
                             <h1 className="title text-4xl font-[Hedvig Sans] sm:text-6xl lg:text-8xl pb-8">signing off,</h1>
-                            <div className="subtitle text-2xl text-left">
+                            <div className="subtitle text-sm md:text-2xl text-left pb-5">
                                 <p>
                                     Let&rsquo;s{" "}
                                     <motion.span
@@ -49,8 +49,8 @@ export default function Links() {
                             </div>
                             <div className="description text-center">
                                 <img src="/assets/Signature.png" className="mx-auto w-1/2 dark:invert" alt="Signature" />
-                                <p className="text-lg text-right">Joshua Chan</p>
-                                <div className="text-sm text-right text-muted-foreground">
+                                <p className="text-md md:text-lg text-right">Joshua Chan</p>
+                                <div className="text-sm md:text-sm text-right text-muted-foreground">
                                     <p>Full Stack Engineer +</p>
                                     <p>Solutions Architecture</p>
                                 </div>
