@@ -24,9 +24,8 @@ export default function Portfolio() {
                         <ImageWithSkeleton src="/assets/content_wordchain_header.png" alt="user testing day image" className="rounded-md" />
                     </div>
                     <p className="py-5 text-justify">
-                        Word Chain is a recent project I worked on as a technical assessment for DataFlows Sdn Bhd. I was provided 7 days to
-                        work on this project which focused on problem solving, smart Artificial Intelligence usage, clean logical thinking,
-                        and working within constraints.
+                        Word Chain is a recent project I worked on which focused on problem solving, smart Artificial Intelligence usage, 
+                        clean logical thinking, and working within constraints.
                     </p>
                     <p className="py-5 text-justify">
                         The task was simple: Create a word chain game using the n8n chat interface where every word must begin with the last
