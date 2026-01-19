@@ -538,7 +538,7 @@ export default function Portfolio() {
             <div className="relative isolate flex flex-col items-center gap-6 px-4 py-20 text-center md:mx-auto md:max-w-5xl md:items-start md:px-8 md:py-20 lg:py-24">
                 <div className="mx-auto flex w-full max-w-5xl flex-col items-center gap-5 text-center">
                     <p className="title text-sm lowercase tracking-[0.2em] text-muted-foreground">
-                        potfolio
+                        portfolio
                     </p>
                     <h2 className="subtitle text-4xl font-[Hedvig Sans] leading-tight text-foreground md:text-5xl lg:text-6xl">
                         A Tribute to Continual Learning
