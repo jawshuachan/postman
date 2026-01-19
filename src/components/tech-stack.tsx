@@ -75,7 +75,7 @@ export default function TechStackShowcase({ onExplore }: TechStackShowcaseProps)
         <section className="flex w-full flex-col gap-10 px-4 py-16 md:px-8 md:py-20">
             <div className="mx-auto flex w-full max-w-5xl flex-col items-center gap-5 text-center">
                 <p className="title text-sm lowercase tracking-[0.2em] text-muted-foreground">
-                    Tech Stack
+                    Tech-Stack
                 </p>
                 <h2 className="subtitle text-4xl font-[Hedvig Sans] leading-tight text-foreground md:text-5xl lg:text-6xl">
                     Tech and frameworks I have picked up over the years.
